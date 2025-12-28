@@ -6,7 +6,7 @@ import vertexShader from './vertex.glsl?raw';
 
 function WaveMaterial() {
     const material = useRef()
-    const scale = 5;
+    const scale = 7;
 
     useFrame(({ clock }) => {
         material.current.uniforms.uTime.value = clock.elapsedTime
