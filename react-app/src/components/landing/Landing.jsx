@@ -1,7 +1,6 @@
 import LinePattern from '../patterns/LinePattern.jsx'
 import './Landing.css'
-import { motion, AnimatePresence } from 'motion/react'
-import { useState, useEffect } from 'react'
+import { motion } from 'motion/react'
 
 function Landing() {
 
@@ -27,6 +26,31 @@ function Landing() {
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1 }}
                 >Check out my personal portfolio with my projects, info, and more</motion.h2>
+
+                <div className='flex flex-row mt-10'>
+                    <motion.h2 
+                    initial={{scale: 0}}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.2 }}
+                    className='underline text-lg m-2.5 cursor-pointer'
+                    >Resume.pdf</motion.h2>
+                    <a href='https://www.linkedin.com/in/luca-j-mazzotta/' target="_blank"><motion.h2 
+                    initial={{scale: 0}}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.3 }}
+                    className='underline text-lg m-2.5 cursor-pointer'
+                    >LinkedIn</motion.h2></a>
+                    <a href='https://github.com/LucaJMazz' target="_blank"><motion.h2 
+                    initial={{scale: 0}}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.4 }}
+                    className='underline text-lg m-2.5 cursor-pointer'
+                    >Github</motion.h2></a>
+                </div>
+
             </div>
             <LinePattern className={'side-pattern'}/>
         </div>

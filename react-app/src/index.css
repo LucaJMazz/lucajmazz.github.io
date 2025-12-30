@@ -39,6 +39,8 @@ body {
     border: .35rem solid var(--light-yellow);
     border-radius: 10000rem;
 
+    user-select: none;
+
     color: var(--light-yellow);
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
@@ -50,6 +52,14 @@ body {
 
     cursor: pointer;
 
-    transition: opacity ease-in-out;
+    transition: ease-in-out;
     transition-duration: 300ms;
+}
+
+.rounded-yellow:hover {
+    background-color: var(--light-yellow);
+    color: var(--dark-blue);
+}
+.rounded-yellow:active {
+    transform: scale(95%);
 }

@@ -60,6 +60,7 @@
     transition: ease-in-out;
     transition-duration: 200ms;
     z-index: 1;
+    filter: drop-shadow(0.08rem 0.08rem 0.08rem rgba(0, 0, 0, 0.494));
 }
 .chevron:hover {
     font-size: 25px;

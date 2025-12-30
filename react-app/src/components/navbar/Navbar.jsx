@@ -57,7 +57,7 @@ function Navbar() {
                 <FaChevronRight className='chevron' onClick={() => chevronHandle(1)}/>
                 </span>
 
-                <button className='rounded-yellow'>Contact</button>
+                <a href='mailto:lucajmazz@gmail.com' className='rounded-yellow'>Contact</a>
             </div>
         </div>
         </>
