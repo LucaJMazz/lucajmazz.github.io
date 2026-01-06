@@ -34,7 +34,10 @@ function Landing() {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.2 }}
                     className='underline text-lg m-2.5 cursor-pointer'
-                    >Resume.pdf</motion.h2>
+                        ><a
+                            href="/Luca Mazzotta, Computer Science - Resume.pdf"
+                            download
+                        >Resume.pdf</a></motion.h2>
                     <a href='https://www.linkedin.com/in/luca-j-mazzotta/' target="_blank"><motion.h2 
                     initial={{scale: 0}}
                     whileInView={{ scale: 1 }}

@@ -10,7 +10,7 @@ function Footer() {
                 <a href='https://github.com/LucaJMazz' className='jetbrains-mono text-sm underline'>Github</a>
                 <a href='https://www.linkedin.com/in/luca-j-mazzotta/' className='jetbrains-mono text-sm underline'>LinkedIn</a>
                 <a href='mailto:lucajmazz@gmail.com' className='jetbrains-mono text-sm underline'>Email: lucajmazz@gmail.com</a>
-                <a className='jetbrains-mono text-sm underline'>Resume.pdf</a>
+                <a className='jetbrains-mono text-sm underline' href="/Luca Mazzotta, Computer Science - Resume.pdf" download>Resume.pdf</a>
             </div>
         </div>
     );

@@ -32,7 +32,7 @@ function Projects() {
                 tools={['ReactJs + Vite', 'Firebase', 'JavScript', 'Netlify']}
                 imgSrc={minuteMathImg}
                 link={'https://minutemath.netlify.app'}
-                span={'Developed a daily math puzzle game inspired by Wordle, using React for the UI and Firebase for backend services such as data storage and future authentication. Focused on deterministic daily challenges, clean UX, and scalable architecture.'}
+                span={'Developed a daily math puzzle game inspired by Wordle, using React for the UI and Firebase for backend services such as data storage and future authentication, and built a custom API for daily challenges. Focused on deterministic daily challenges, clean UX, and scalable architecture.'}
                 />
 
                 <ProjectBox name={'Sniff \'em out'} 
