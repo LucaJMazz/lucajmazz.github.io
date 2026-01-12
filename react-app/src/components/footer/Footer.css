@@ -1,0 +1,15 @@
+.footer-container {
+    border-top: .5rem solid var(--light-blue);
+    position: relative;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.491);
+    backdrop-filter: blur(.3rem);
+}

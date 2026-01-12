@@ -1,0 +1,145 @@
+.creative-works-container {
+    width: 70%;
+    box-shadow: 0rem 0rem 3rem 2rem rgba(0, 0, 0, 0.442);
+    background-color: var(--background);
+}
+.creative-works-container h1 {
+    font-size: 3.8rem;
+    letter-spacing: -0.04em;
+    position: relative;
+}
+.artwork {
+    width: 100%;
+    max-width: 600px;
+    color: white;
+    border-radius: 1.1rem;
+    padding: 1.1rem;
+
+    position: relative;
+}
+
+.art-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.artwork > * {
+    position: relative;
+    z-index: 1;
+}
+
+.artwork h2,
+.artwork h3 {
+    color: white;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.artwork li {
+    color: rgba(255,255,255,0.85);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.artwork:hover {
+    box-shadow: 0 24px 55px rgba(0,0,0,0.14);
+}
+.image-holder {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.art-button {
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35);
+    background-color: rgba(255,255,255,0.18);
+    color: white;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 4px 12px rgba(0,0,0,0.25);
+
+    backdrop-filter: blur(4px);
+}
+
+.art-button:hover {
+    background-color: var(--light-blue);
+    color: var(--black);
+}
+.art-button:active {
+    transform: scale(95%);
+}
+
+.blur-bg {
+    z-index: 9;
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 5rem);
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2rem);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blur-bg img {
+    height: 90vh;
+    width: auto;
+}
+
+.image-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+.image-holder img:hover {
+    transform: scale(1.05);
+}
+
+.art-meta {
+    margin-bottom: 0.6rem;
+}
+
+.art-buttons {
+    margin-top: 0.5rem;
+}
+
+.art-accent {
+    position: absolute;
+    top: 1.25rem;
+    left: 0;
+    width: 0.35rem;
+    height: calc(100% - 2.5rem);
+    background-color: var(--light-blue);
+    opacity: 0.75;
+    border-radius: 0 999px 999px 0;
+}
+
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-radius: 0.75rem;
+    padding: 0.6rem 0.75rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.35),
+        0 6px 18px rgba(0,0,0,0.18);
+
+    backdrop-filter: blur(6px);
+}
+
+.artwork-pattern {
+    border: .3rem solid var(--light-blue);
+    background-color: var(--black);
+}
+
+.side-pattern1{
+    height: 100%;
+    width: 15%;
+}
