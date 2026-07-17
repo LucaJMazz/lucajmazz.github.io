@@ -16,10 +16,16 @@
     color: var(--white);
     font-family: "Bagel Fat One", system-ui;
     font-weight: 100;
-    padding-top: 2rem;
-    padding-bottom: 2.5rem;
+
+    padding-block: clamp(1rem, 5vw, 2rem);
+
+    font-size: clamp(1rem, 5vw, 8rem);
 }
 
 .scroll-text:hover {
     filter: drop-shadow(0px 0px 1rem 1rem black);
+}
+
+.scroll-divider hr {
+    height: clamp(.2rem, .7vw, 1rem);
 }

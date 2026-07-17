@@ -1,14 +1,16 @@
 import './Projects.css'
-import minesweeperImg from '../../assets/minesweeper++.png'
-import portfolioImg from '../../assets/portfolio.png'
-import minuteMathImg from '../../assets/minutemath.png'
-import sniffEmOutImg from '../../assets/sniffemout.png'
+import minesweeperImg from '../../assets/minesweeper++.webp'
+import portfolioImg from '../../assets/portfolio.webp'
+import minuteMathImg from '../../assets/minutemath.webp'
+import sniffEmOutImg from '../../assets/sniffemout.webp'
 import LinePattern from '../patterns/LinePattern';
 
 function Projects() {
     return (
         <div className='projects-container flex flex-col justify-center items-center'>
-            <h1 className='mt-8 mb-8'>Projects</h1>
+            <div className='title'>
+                <p>[</p> <h1>Projects</h1> <p>]</p>
+            </div>
             <LinePattern className={'pattern-bg'}>
             <div className='py-15 w-dvw flex justify-center items-center'>
             <div className='grid grid-cols-2 grid-rows-2 gap-15'>

@@ -1,8 +1,8 @@
 import './AboutMe.css'
-import yorkLogo from '../../assets/york-u-logo.png';
-import variHall from '../../assets/vari-hall.png';
-import idImage from '../../assets/id-image.jpg';
-import suitImg from '../../assets/suit.png'
+import yorkLogo from '../../assets/york-u-logo.webp';
+import variHall from '../../assets/vari-hall.webp';
+import idImage from '../../assets/id-image.webp';
+import suitImg from '../../assets/suit.webp'
 import { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import LinePattern from '../patterns/LinePattern';
@@ -28,11 +28,13 @@ function AboutMe() {
 
     return (
         <div className='about-me-container mb-40'>
-            <h1>About Me</h1>
-            <div className='flex flex-row justify-center items-center'>
-                <p onClick={() => {scrollTo(summaryRef)}} className='m-2 jetbrains-mono underline cursor-pointer'>Summary</p>
-                <p onClick={() => {scrollTo(educationRef)}} className='m-2 jetbrains-mono underline cursor-pointer'>Education</p>
-                <p onClick={() => {scrollTo(skillsRef)}} className='m-2 jetbrains-mono underline cursor-pointer'>Skills</p>
+            <div className='title'>
+                <p>[</p> <h1>About Me</h1> <p>]</p>
+            </div>
+            <div className='flex flex-row justify-center items-center sections'>
+                <p onClick={() => {scrollTo(summaryRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Summary</p>
+                <p onClick={() => {scrollTo(educationRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Education</p>
+                <p onClick={() => {scrollTo(skillsRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Skills</p>
             </div>
 
             <div ref={summaryRef} className='flex flex-row justify-center items-center mb-5 mx-50'>
@@ -127,7 +129,11 @@ function AboutMe() {
             <PatternDivider />
 
             <div ref={skillsRef} className='flex flex-col justify-center items-center mt-5'>
-                <h1>Skills</h1>
+                <div className='title'>
+                    <p>[</p> <h1>Skills</h1> <p>]</p>
+                </div>
+                <p className="jetbrains-mono subtitle">A mix of technical, creative, and problem-solving skills I've developed through school, personal projects, and self-study.</p>
+                <hr className="h-1 mb-5 mt-2 subtitle"/>
                 <div className='mt-8 grid grid-cols-2 grid-rows-2 gap-10'>
                 <div className='skill-box'>
                     <div className='flex flex-row justify-start items-center m-0'>

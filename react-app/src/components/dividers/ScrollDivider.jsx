@@ -1,5 +1,6 @@
 import './ScrollDivider.css'
 import React, { useEffect, useRef, useState } from 'react';
+import TextScrollMarquee from '../lightswind/text-scroll-marquee';
 
 function ScrollDivider() {
     const scrollRef = useRef(null);
@@ -10,7 +11,8 @@ function ScrollDivider() {
         'Graphic Design',
         'App Development',
         'Web App Creation',
-        'Front+Back End Development',
+        'Back End Development',
+        'Building Systems'
     ];
 
     useEffect(() => {
@@ -37,7 +39,7 @@ function ScrollDivider() {
     }, []);
 
     return (
-        <>
+        <div className='scroll-divider'>
             <hr className='h-2' />
 
             <div className="flex items-center justify-centerover flow-hidden">
@@ -71,7 +73,7 @@ function ScrollDivider() {
 
 
             <hr className='h-2' />
-        </>
+        </div>
     )
 }
 

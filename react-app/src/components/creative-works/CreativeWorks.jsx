@@ -6,17 +6,17 @@ import t1 from '../../assets/trip/t1.jpeg'
 import t2 from '../../assets/trip/t2.jpeg'
 import t3 from '../../assets/trip/t3.jpeg'
 
-import p1 from '../../assets/Posters/vader.PNG'
-import p2 from '../../assets/Posters/invinciblePoster.PNG'
-import p3 from '../../assets/Posters/jotaroStarPlatinumLQ.PNG'
-import p4 from '../../assets/Posters/lich.PNG'
-import p5 from '../../assets/Posters/MilesMorales.jpg'
-import p6 from '../../assets/Posters/DIo2.JPG'
+import p1 from '../../assets/Posters/vader.webp'
+import p2 from '../../assets/Posters/invinciblePoster.webp'
+import p3 from '../../assets/Posters/jotaroStarPlatinumLQ.webp'
+import p4 from '../../assets/Posters/lich.webp'
+import p5 from '../../assets/Posters/MilesMorales.webp'
+import p6 from '../../assets/Posters/DIo2.webp'
 
-import b1 from '../../assets/blender/untitled.PNG'
-import b2 from '../../assets/blender/IMG_1689.jpg'
-import b3 from '../../assets/blender/PopFigureIphone1.jpg'
-import b4 from '../../assets/blender/TVpfp.PNG'
+import b1 from '../../assets/blender/untitled.webp'
+import b2 from '../../assets/blender/IMG_1689.webp'
+import b3 from '../../assets/blender/PopFigureIphone1.webp'
+import b4 from '../../assets/blender/TVpfp.webp'
 
 
 function CreativeWorks() {
@@ -25,7 +25,9 @@ function CreativeWorks() {
         <div className='flex flex-row justify-center items-center'>
         <div className='creative-works-container flex flex-col justify-center items-center shrink-0'>
             <div className='flex flex-col justify-center items-center m-2 mb-5 shrink-0'>
-                <h1>Creative Works</h1>
+                <div className='title'>
+                <p>[</p> <h1>Creative works</h1> <p>]</p>
+                </div>
                 <p className='jetbrains-mono'>Hover and click on an image to see it in full scale</p>
                 <hr className='h-1'/>
             </div>

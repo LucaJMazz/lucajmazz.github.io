@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "motion/react"
 import { useNavigate, useLocation } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { HiMenu } from "react-icons/hi";
+import { FaChevronLeft, FaChevronRight, FaUser, FaPaintBrush } from "react-icons/fa";
+import { FaHouse } from "react-icons/fa6";
+import { GoFileDirectoryFill } from "react-icons/go";
+import { IoIosMail } from "react-icons/io";
+import iconImg from '../../assets/iconEmpty.png';
 import './Navbar.css'
-import NavbarMenu from './NavbarMenu'
 
 function Navbar() {
     const [selected, setSelected] = useState(0);
-    const [showMenu, setShowMenu] = useState(false);
-    const menuItems = ['Home', 'About Me', 'Projects', 'Creative Works'];
+    const menuItems = [
+        ['Home', <FaHouse />], 
+        ['About Me', <FaUser />], 
+        ['Projects', <GoFileDirectoryFill />], 
+        ['Creative Works', <FaPaintBrush />]
+    ];
     const locationIndex = {'/home': 0, '/about-me':1, '/projects':2, '/creative-works':3};
     const location = useLocation();
     const navigate = useNavigate();
@@ -41,26 +47,31 @@ function Navbar() {
 
     return (
         <>
-        <AnimatePresence>
-            {showMenu && <NavbarMenu />}
-        </AnimatePresence>
         <div className='navbar-container'>
             <div className="bar">
-                <HiMenu className='menu' onClick={() => setShowMenu(!showMenu)}/>
+                <img className='menu' src={iconImg} alt='website icon' onClick={() => navigate("/home")}/>
 
                 <span className='item-holder'>
                 <FaChevronLeft className='chevron' onClick={() => chevronHandle(-1)}/>
                 {
                     menuItems.map((item, index) => {
-                        return <Item key={index} index={index} 
-                                text={item} setSelected={setSelected} 
-                                selected={selected}/>
+                        return <Item 
+                                    key={index} 
+                                    index={index} 
+                                    text={item[0]} 
+                                    icon={item[1]}
+                                    setSelected={setSelected} 
+                                    selected={selected}
+                                />
                     })
                 }
                 <FaChevronRight className='chevron' onClick={() => chevronHandle(1)}/>
                 </span>
 
-                <a href='mailto:lucajmazz@gmail.com' className='rounded-yellow'>Contact</a>
+                <a href='mailto:lucajmazz@gmail.com' className='rounded-yellow'>
+                    <IoIosMail className="icon"/>
+                    Contact
+                </a>
             </div>
         </div>
         </>
@@ -73,7 +84,7 @@ function SelectedNode() {
     );
 }
 
-function Item({ text, selected = false, setSelected, index }) {
+function Item({ text, icon, selected = false, setSelected, index }) {
     const navigate = useNavigate();
     return (
         <div onClick={()=>{
@@ -81,7 +92,10 @@ function Item({ text, selected = false, setSelected, index }) {
             navigate("/"+text.toLowerCase().replace(' ', '-'));
         }} className={`item ${(selected == index) ? 'selected' : ''}`}
         id={`item-${index}`} >
-            <p>{text}</p>
+            <div>   
+                {icon}
+                <p>{text}</p>
+            </div>
             {selected === index && (
                 <SelectedNode />
             )}    

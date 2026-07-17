@@ -42,8 +42,8 @@
 
 .pattern-bg::after {
     content: '';
-    border-top: .5rem solid var(--dark-blue);
-    border-bottom: .5rem solid var(--dark-blue);
+    border-top: .5rem solid var(--light-blue);
+    border-bottom: .5rem solid var(--light-blue);
     position: absolute;
     top: 0;
     left: 0;
@@ -180,4 +180,18 @@
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: black 1px 1px 1px;
+}
+
+.sections {
+    font-size: clamp(.8rem, 1.5vw, 3rem);
+}
+
+p.subtitle {
+    width: 70%;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-me-container hr.subtitle {
+    width: 20%;
 }

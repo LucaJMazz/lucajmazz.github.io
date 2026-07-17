@@ -7,35 +7,46 @@
     align-items: center;
 
     width: 100vw;
-    height: 35rem;
+    height: clamp(20rem, 40vw, 40rem);
 }
 
-h1 {
+.landing-container h1 {
     font-family: "Bagel Fat One", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 80px;
+    font-size: clamp(2rem, 5.5vw, 8rem);
     text-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.317);
 }
-h2 {
+.landing-container h2 {
     font-family: "JetBrains Mono", monospace;
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
     font-weight: 800;
     font-style: normal;
-}
-hr {
-    border: none;
-    width: 100%;
-    /* height: .2rem; */
-    background-color: var(--light-blue);
+    font-size: clamp(1rem, 2.1vw, 3.4rem);
 }
 
-.side-pattern {
+.landing-container .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: .2rem;
+    transition: all ease-in-out;
+    transition-duration: .1s;
+
+}
+
+.landing-container .link:hover {
+    font-weight: 800;
+}
+
+.landing-container .side-pattern {
     position: relative;
     height: 100%;
     width: 15%;
 }
-.side-pattern::after {
+.landing-container .side-pattern::after {
     content: '';
     position: absolute;
     top: 0;
@@ -45,7 +56,7 @@ hr {
     box-shadow: inset 9px 0px 25px 3px rgba(0, 0, 0, 0.598);
     pointer-events: none;
 }
-.side-pattern:first-of-type::after {
+.landing-container .side-pattern:first-of-type::after {
     content: '';
     position: absolute;
     top: 0;
@@ -55,9 +66,26 @@ hr {
     box-shadow: inset -9px 0px 25px 3px rgba(0, 0, 0, 0.598);
     pointer-events: none;
 }
-.title-container {
+.landing-container .title-container {
     width: 70%;
     height: 100%;
 
-    padding: 1rem;
+    padding: 3rem;
+}
+
+@media (max-width: 768px) {
+    .landing-container .title-container {
+        width: 85%;
+        padding: 1rem;
+    }
+    .landing-container h2 {
+        margin-block: 1rem;
+        padding-block: 0rem;
+    }
+    .landing-container .linkContainer {
+        margin-top: 0px;
+    }
+    .landing-container .divider {
+        height: 0px;
+    }
 }
