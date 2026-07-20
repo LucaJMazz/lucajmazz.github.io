@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "motion/react"
 import { useNavigate, useLocation } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight, FaUser, FaPaintBrush } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaUser, FaPaintBrush, FaBars, FaTimes } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
 import { GoFileDirectoryFill } from "react-icons/go";
 import { IoIosMail } from "react-icons/io";
@@ -10,6 +10,7 @@ import './Navbar.css'
 
 function Navbar() {
     const [selected, setSelected] = useState(0);
+    const [menuOpen, setMenuOpen] = useState(false);
     const menuItems = [
         ['Home', <FaHouse />], 
         ['About Me', <FaUser />], 
@@ -42,7 +43,7 @@ function Navbar() {
             setSelected(val);
         }
 
-        navigate("/"+menuItems[val].toLowerCase().replace(' ', '-'));
+        navigate("/"+menuItems[val][0].toLowerCase().replace(' ', '-'));
     }
 
     return (
@@ -51,17 +52,22 @@ function Navbar() {
             <div className="bar">
                 <img className='menu' src={iconImg} alt='website icon' onClick={() => navigate("/home")}/>
 
+                <button className='hamburger' onClick={() => setMenuOpen(prev => !prev)} aria-label='Toggle menu'>
+                    {menuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+
                 <span className='item-holder'>
                 <FaChevronLeft className='chevron' onClick={() => chevronHandle(-1)}/>
                 {
                     menuItems.map((item, index) => {
-                        return <Item 
-                                    key={index} 
-                                    index={index} 
-                                    text={item[0]} 
+                        return <Item
+                                    key={index}
+                                    index={index}
+                                    text={item[0]}
                                     icon={item[1]}
-                                    setSelected={setSelected} 
+                                    setSelected={setSelected}
                                     selected={selected}
+                                    onItemClick={() => setMenuOpen(false)}
                                 />
                     })
                 }
@@ -73,6 +79,38 @@ function Navbar() {
                     Contact
                 </a>
             </div>
+
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        className='mobile-menu'
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    >
+                        <span className='mobile-menu-items'>
+                        {
+                            menuItems.map((item, index) => {
+                                return <Item
+                                            key={index}
+                                            index={index}
+                                            text={item[0]}
+                                            icon={item[1]}
+                                            setSelected={setSelected}
+                                            selected={selected}
+                                            onItemClick={() => setMenuOpen(false)}
+                                        />
+                            })
+                        }
+                        </span>
+                        <a href='mailto:lucajmazz@gmail.com' className='mobile-contact rounded-yellow'>
+                            <IoIosMail className="icon"/>
+                            Contact
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
         </>
     )
@@ -84,12 +122,13 @@ function SelectedNode() {
     );
 }
 
-function Item({ text, icon, selected = false, setSelected, index }) {
+function Item({ text, icon, selected = false, setSelected, index, onItemClick }) {
     const navigate = useNavigate();
     return (
         <div onClick={()=>{
             setSelected(index);
             navigate("/"+text.toLowerCase().replace(' ', '-'));
+            if (onItemClick) onItemClick();
         }} className={`item ${(selected == index) ? 'selected' : ''}`}
         id={`item-${index}`} >
             <div>   

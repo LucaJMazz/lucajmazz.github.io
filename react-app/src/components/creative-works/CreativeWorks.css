@@ -143,3 +143,41 @@
     height: 100%;
     width: 15%;
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .creative-works-container {
+        width: 85%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .creative-works-container {
+        width: 100%;
+        box-shadow: none;
+    }
+    .creative-works-container h1 {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+    .creative-works-container > div:first-child {
+        margin-top: 1rem;
+    }
+
+    .artwork {
+        padding: 0.6rem;
+    }
+
+    .art-meta {
+        margin-bottom: 0.4rem;
+    }
+
+    .blur-bg img {
+        height: 70vh;
+    }
+
+    /* Override outer flex to stack on narrow screens */
+    .creative-works-container > div:first-child > .title {
+        flex-direction: row;
+    }
+}

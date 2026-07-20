@@ -34,3 +34,40 @@
     transform: scale(102%);
 }
 
+.pattern-bg {
+    width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .project-box {
+        width: 20rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .project-box {
+        width: 100%;
+        max-width: 22rem;
+    }
+
+    /* Override Tailwind grid to single column */
+    .projects-container .grid.grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .projects-container .py-15 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        padding-inline: 1rem;
+        box-sizing: border-box;
+    }
+
+    .projects-container .title h1 {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+}
+

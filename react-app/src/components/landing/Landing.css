@@ -73,19 +73,42 @@
     padding: 3rem;
 }
 
-@media (max-width: 768px) {
+/* Tablet: reduce side patterns */
+@media (max-width: 1024px) {
+    .landing-container .side-pattern {
+        width: 8%;
+    }
     .landing-container .title-container {
-        width: 85%;
-        padding: 1rem;
+        width: 84%;
+    }
+}
+
+/* Mobile: hide side patterns, full-width title, tighter spacing */
+@media (max-width: 768px) {
+    .landing-container .side-pattern {
+        display: none;
+    }
+    .landing-container .title-container {
+        width: 100%;
+        padding: 1rem 1.5rem;
     }
     .landing-container h2 {
-        margin-block: 1rem;
+        margin-block: 0.5rem;
         padding-block: 0rem;
+        font-size: clamp(0.85rem, 3.2vw, 2rem);
     }
     .landing-container .linkContainer {
         margin-top: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
     }
     .landing-container .divider {
         height: 0px;
+    }
+    .landing-container .link {
+        font-size: clamp(0.85rem, 3vw, 1.2rem);
+        margin: 0.5rem;
     }
 }

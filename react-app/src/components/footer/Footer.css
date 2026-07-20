@@ -1,6 +1,8 @@
 .footer-container {
     border-top: .5rem solid var(--light-blue);
     position: relative;
+
+    font-size: clamp(.7rem, 1.4vw, 1rem);
 }
 
 .overlay {
@@ -13,3 +15,4 @@
     background-color: rgba(0, 0, 0, 0.491);
     backdrop-filter: blur(.3rem);
 }
+

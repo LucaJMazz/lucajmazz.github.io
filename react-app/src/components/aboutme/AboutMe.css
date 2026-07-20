@@ -195,3 +195,105 @@ p.subtitle {
 .about-me-container hr.subtitle {
     width: 20%;
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .about-me-container .sections {
+        font-size: clamp(0.75rem, 1.8vw, 1.2rem);
+    }
+    .about-me-container .subtitle {
+        width: 85%;
+    }
+    .about-me-container hr.subtitle {
+        width: 40%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-me-container > .title h1 {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+
+    /* Summary section — stack vertically */
+    .about-me-container > .flex.flex-row.justify-center.items-center.mb-5.mx-50 {
+        flex-direction: column;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .about-me-container > .flex.flex-row.justify-center.items-center.mb-5.mx-50 > span {
+        padding: 1rem;
+        font-size: 1rem;
+        order: 1;
+    }
+    .about-me-container > .flex.flex-row.justify-center.items-center.mb-5.mx-50 > .portrait-before {
+        order: 2;
+        margin-top: 1rem;
+    }
+    .portrait img {
+        height: 12rem;
+        width: 13rem;
+    }
+
+    /* Education section — stack vertically */
+    .about-me-container .px-60 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        flex-direction: column;
+    }
+    .about-me-container .px-60 .text-box {
+        font-size: 0.95rem;
+        padding: 1.2rem;
+    }
+    .about-me-container .px-60 .scale-130 {
+        transform: scale(1);
+        margin-top: 1.5rem;
+    }
+
+    /* Info cards — single column */
+    .eduboxes {
+        padding-inline: 1rem;
+    }
+    .eduboxes > .flex.flex-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-card {
+        width: 90%;
+        max-width: 22rem;
+        height: auto;
+        min-height: 28rem;
+        margin-block: 1rem;
+    }
+    .info-card::before {
+        width: calc(100% + 0.4rem);
+        height: calc(100% + 0.4rem);
+    }
+
+    /* Skills section — single column grid */
+    .about-me-container .grid.grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        justify-content: center;
+        justify-items: center
+    }
+    .skill-box {
+        width: 90%;
+        max-width: 26rem;
+    }
+    .about-me-container .subtitle {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+    .about-me-container hr.subtitle {
+        width: 60%;
+    }
+
+    /* Section links */
+    .about-me-container .sections {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+    }
+}

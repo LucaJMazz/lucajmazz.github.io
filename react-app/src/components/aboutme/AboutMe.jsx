@@ -236,7 +236,7 @@ function IdCard() {
     return (
         <a href='https://www.yorku.ca' target="_blank"><motion.div 
             title="Visit York University"
-            className='card shrink-0 mx-15'
+            className='card shrink-0 mx-4 md:mx-15'
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{

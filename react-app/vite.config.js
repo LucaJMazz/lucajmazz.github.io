@@ -10,7 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-plugins: [
+  plugins: [
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler']],
@@ -19,4 +19,10 @@ plugins: [
     tailwindcss(),
   ],
   base: '/',
+  server: {
+    // Specify the hostnames Vite is allowed to respond to
+    allowedHosts: [
+      'prude-runny-emphatic.ngrok-free.dev'
+    ]
+  }
 })
