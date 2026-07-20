@@ -1,6 +1,5 @@
 import './ScrollDivider.css'
 import React, { useEffect, useRef, useState } from 'react';
-import TextScrollMarquee from '../lightswind/text-scroll-marquee';
 
 function ScrollDivider() {
     const scrollRef = useRef(null);
