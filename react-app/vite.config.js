@@ -24,5 +24,9 @@ export default defineConfig({
     allowedHosts: [
       'prude-runny-emphatic.ngrok-free.dev'
     ]
-  }
+  },
+  build: {
+    outDir: '../docs', // Builds to the repository root as /docs
+    emptyOutDir: true,
+  },
 })
