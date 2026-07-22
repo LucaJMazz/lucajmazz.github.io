@@ -3,6 +3,8 @@ import minesweeperImg from '../../assets/minesweeper++.webp'
 import portfolioImg from '../../assets/portfolio.webp'
 import minuteMathImg from '../../assets/minutemath.webp'
 import sniffEmOutImg from '../../assets/sniffemout.webp'
+import blockifyImg from '../../assets/blockify.webp'
+import LichessRevampedImg from '../../assets/LichessRevamped.webp'
 import LinePattern from '../patterns/LinePattern';
 
 function Projects() {
@@ -21,14 +23,6 @@ function Projects() {
                 link={'/'}
                 span={'Designed and developed a fully responsive portfolio using React and Vite, styled with Tailwind CSS. Implemented smooth UI animations and page transitions with Framer Motion, focusing on clean component structure, performance, and modern frontend best practices.'}/>
 
-                <ProjectBox name={'Minesweeper++'} 
-                desc={'A Minesweeper game with different modes for a new experience'} 
-                tools={['ReactJs + Vite', 'Tailwind CSS', 'Redux', 'JavScript', 'Netlify']}
-                imgSrc={minesweeperImg}
-                link={'https://minesweeper-plus-plus.netlify.app'}
-                span={'Built a feature-rich Minesweeper clone using React and Redux for centralized game state management. Implemented multiple game modes, dynamic board generation, and efficient state updates, then deployed the project using Netlify.'}
-                />
-
                 <ProjectBox name={'Minute Math'} 
                 desc={'A Wordle-like game with daily math problems'} 
                 tools={['ReactJs + Vite', 'Firebase', 'JavScript', 'Netlify']}
@@ -37,12 +31,36 @@ function Projects() {
                 span={'Developed a daily math puzzle game inspired by Wordle, using React for the UI and Firebase for backend services such as data storage and future authentication, and built a custom API for daily challenges. Focused on deterministic daily challenges, clean UX, and scalable architecture.'}
                 />
 
+                <ProjectBox name={'Blockify'} 
+                desc={'Turn any image into a minecraft block pixelized version'} 
+                tools={['Java', 'Springboot', 'REST API', 'Azure']}
+                imgSrc={blockifyImg}
+                link={'https://blockify-a4aaeabxcsfndne9.northcentralus-01.azurewebsites.net'}
+                span={'Developed a full-stack image processing application that converts uploaded images into Minecraft-style block art using custom color-matching and pixel quantization algorithms. Designed and implemented a RESTful API with Spring Boot to handle image uploads, processing, and generated outputs while focusing on scalable backend architecture, efficient image manipulation, and clean API design.'}
+                />
+
+                <ProjectBox name={'Minesweeper++'} 
+                desc={'A Minesweeper game with different modes for a new experience'} 
+                tools={['ReactJs + Vite', 'Tailwind CSS', 'Redux', 'JavScript', 'Netlify']}
+                imgSrc={minesweeperImg}
+                link={'https://minesweeper-plus-plus.netlify.app'}
+                span={'Built a feature-rich Minesweeper clone using React and Redux for centralized game state management. Implemented multiple game modes, dynamic board generation, and efficient state updates, then deployed the project using Netlify.'}
+                />
+
                 <ProjectBox name={'Sniff \'em out'} 
                 desc={'A mobile app where a group of people try to find who the odd man out is'} 
                 tools={['Swift', 'XCode', 'Figma']}
                 imgSrc={sniffEmOutImg}
                 link={'https://drive.google.com/file/d/1Pk4NPj4TG63vfzaTHY2iCFxYT-HY1uBJ/view'}
                 span={'Developed Sniff \'em out as a social deduction experience using Swift and Xcode, prioritizing a "pass-and-play" mobile architecture. I designed and customize a branded UI and implemented a custom back-end system that handles state management to handle the topic and each players roles.'}
+                />
+
+                <ProjectBox name={'Lichess Revamped'} 
+                desc={'Lichess browser extension '} 
+                tools={['Javascript', 'HTML', 'CSS']}
+                imgSrc={LichessRevampedImg}
+                link={'https://github.com/LucaJMazz/LichessRavamped'}
+                span={'Developed a browser extension for Lichess.com that adds custom styling, assets and a fully finished board visualizer that scraped your live games to get real time move data. I used chess.js and chessboard.js to create the workign chessboard and injected custom html and css styling into the page to change the look.'}
                 />
 
             </div>
