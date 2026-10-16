@@ -6,12 +6,16 @@ function ScrollDivider() {
     const [scrollWidth, setScrollWidth] = useState(0);
 
     const items = [
-        'Programming',
-        'Graphic Design',
-        'App Development',
-        'Web App Creation',
-        'Back End Development',
-        'Building Systems'
+        'Java',
+        'JavaScript',
+        'TypeScript',
+        'Python',
+        'React',
+        'Spring Boot',
+        'Node.js',
+        'Firebase',
+        'Git',
+        'Docker'
     ];
 
     useEffect(() => {

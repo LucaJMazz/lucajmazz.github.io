@@ -2,9 +2,9 @@ import './CreativeWorks.css'
 import { useState } from 'react'
 import LinePattern from '../patterns/LinePattern'
 import { motion } from 'motion/react'
-import t1 from '../../assets/trip/t1.jpeg'
-import t2 from '../../assets/trip/t2.jpeg'
-import t3 from '../../assets/trip/t3.jpeg'
+import t1 from '../../assets/trip/t1.webp'
+import t2 from '../../assets/trip/t2.webp'
+import t3 from '../../assets/trip/t3.webp'
 
 import p1 from '../../assets/Posters/vader.webp'
 import p2 from '../../assets/Posters/invinciblePoster.webp'
@@ -108,6 +108,10 @@ function Artwork({ name, desc, span, imgs}) {
                             className='cursor-zoom-in'
                             src={imgs[currentIndex]}
                             alt={`Artwork ${currentIndex + 1}`}
+                            width={1000}
+                            height={1000}
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
 
@@ -141,7 +145,11 @@ function Artwork({ name, desc, span, imgs}) {
         >
             <img 
                 src={imgs[currentIndex]}
-                alt={`Artwork ${currentIndex + 1}`}/>
+                alt={`Artwork ${currentIndex + 1}`}
+                width={1000}
+                height={1000}
+                loading="lazy"
+                decoding="async"/>
         </div>}
         </>
     );

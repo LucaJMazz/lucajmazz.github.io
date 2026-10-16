@@ -1,8 +1,9 @@
+import { Suspense, lazy } from 'react'
 import Landing from "./components/landing/Landing";
-import AboutMe from "./components/aboutme/AboutMe";
-import Projects from "./components/projectspage/Projects";
 import ScrollDivider from "./components/dividers/ScrollDivider";
-import CreativeWorks from "./components/creative-works/CreativeWorks";
+const AboutMe = lazy(() => import("./components/aboutme/AboutMe"));
+const Projects = lazy(() => import("./components/projectspage/Projects"));
+const CreativeWorks = lazy(() => import("./components/creative-works/CreativeWorks"));
 
 function Home() {
     return (
@@ -10,10 +11,16 @@ function Home() {
             <Landing />
             <ScrollDivider />
             <div className="my-4" />
-            <AboutMe />
+            <Suspense fallback={null}>
+                <AboutMe />
+            </Suspense>
             <ScrollDivider />
-            <Projects />
-            <CreativeWorks />
+            <Suspense fallback={null}>
+                <Projects />
+            </Suspense>
+            <Suspense fallback={null}>
+                <CreativeWorks />
+            </Suspense>
         </>
     )
 }

@@ -13,7 +13,7 @@ function Landing() {
                 <LinePattern className={'side-pattern'} />
                 <div className='title-container flex flex-col justify-center items-center'>
                     <h1>Luca Mazzotta</h1>
-                    <h2 className='text-3xl flex flex-col justify-center text-center items-center'>Computer Science student at York Univserity
+                    <h2 className='text-3xl flex flex-col justify-center text-center items-center'>Computer Science student at York University
                         <motion.hr
                             className='h-1'
                             initial={{ width: 0 }}
@@ -43,7 +43,7 @@ function Landing() {
                                 <IoDocumentTextOutline className='icon'/> Resume.pdf 
                             </motion.h2>
                         </a>
-                        <a href='https://www.linkedin.com/in/luca-j-mazzotta/' target="_blank">
+                        <a href='https://www.linkedin.com/in/luca-j-mazzotta/' target="_blank" rel="noopener noreferrer">
                             <motion.h2
                                 initial={{ scale: 0 }}
                                 whileInView={{ scale: 1 }}
@@ -54,7 +54,7 @@ function Landing() {
                                 <RiLinkedinBoxLine /> LinkedIn
                             </motion.h2>
                         </a>
-                        <a href='https://github.com/LucaJMazz' target="_blank">
+                        <a href='https://github.com/LucaJMazz' target="_blank" rel="noopener noreferrer">
                             <motion.h2
                                 initial={{ scale: 0 }}
                                 whileInView={{ scale: 1 }}

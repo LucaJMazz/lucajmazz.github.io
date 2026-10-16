@@ -16,51 +16,62 @@ function Projects() {
             <LinePattern className={'pattern-bg'}>
             <div className='py-15 w-dvw flex justify-center items-center'>
             <div className='grid grid-cols-2 grid-rows-2 gap-15'>
-                <ProjectBox name={'Portfolio Site'} 
-                desc={'Portfolio site for my personal applications'} 
-                tools={['ReactJs + Vite', 'Tailwind CSS', 'framer-motion', 'Fimga']}
-                imgSrc={portfolioImg}
-                link={'/'}
-                span={'Designed and developed a fully responsive portfolio using React and Vite, styled with Tailwind CSS. Implemented smooth UI animations and page transitions with Framer Motion, focusing on clean component structure, performance, and modern frontend best practices.'}/>
-
-                <ProjectBox name={'Minute Math'} 
-                desc={'A Wordle-like game with daily math problems'} 
-                tools={['ReactJs + Vite', 'Firebase', 'JavScript', 'Netlify']}
-                imgSrc={minuteMathImg}
-                link={'https://minutemath.netlify.app'}
-                span={'Developed a daily math puzzle game inspired by Wordle, using React for the UI and Firebase for backend services such as data storage and future authentication, and built a custom API for daily challenges. Focused on deterministic daily challenges, clean UX, and scalable architecture.'}
-                />
-
                 <ProjectBox name={'Blockify'} 
-                desc={'Turn any image into a minecraft block pixelized version'} 
-                tools={['Java', 'Springboot', 'REST API', 'Azure']}
+                desc={'Image-to-Minecraft-block-art converter with a Spring Boot REST API'} 
+                tools={['Java', 'Spring Boot', 'Maven', 'REST API', 'Azure']}
                 imgSrc={blockifyImg}
+                imgAlt={'Screenshot of Blockify image to Minecraft block converter'}
                 link={'https://blockify-a4aaeabxcsfndne9.northcentralus-01.azurewebsites.net'}
-                span={'Developed a full-stack image processing application that converts uploaded images into Minecraft-style block art using custom color-matching and pixel quantization algorithms. Designed and implemented a RESTful API with Spring Boot to handle image uploads, processing, and generated outputs while focusing on scalable backend architecture, efficient image manipulation, and clean API design.'}
+                viewText={'View live site'}
+                span={'Texture-caching layer using Java HashMaps cuts repeated colour calculations and reduces processing time. Backend deployed on Azure.'}/>
+                
+                <ProjectBox name={'Minute Math'} 
+                desc={'Daily Wordle-style math puzzle game — same challenge for everyone, every day'} 
+                tools={['React', 'Vite', 'Firebase', 'JavaScript', 'Netlify']}
+                imgSrc={minuteMathImg}
+                imgAlt={'Screenshot of Minute Math daily math puzzle game'}
+                link={'https://minutemath.netlify.app'}
+                viewText={'View live site'}
+                span={'Custom API generates and serves daily challenges so puzzles are the same for everyone across time zones. Firebase for data storage, deployed on Netlify.'}
                 />
 
+                <ProjectBox name={'Portfolio Site'} 
+                desc={'Personal portfolio site built with React and Vite'} 
+                tools={['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Figma']}
+                imgSrc={portfolioImg}
+                imgAlt={'Screenshot of Luca Mazzotta portfolio site showing projects and about me sections'}
+                link={'/'}
+                viewText={'View site'}
+                span={'Fully responsive portfolio with smooth UI animations and page transitions. Clean component structure and modern frontend best practices.'}/>
+                
                 <ProjectBox name={'Minesweeper++'} 
-                desc={'A Minesweeper game with different modes for a new experience'} 
-                tools={['ReactJs + Vite', 'Tailwind CSS', 'Redux', 'JavScript', 'Netlify']}
+                desc={'Minesweeper game with multiple modes for a new experience'} 
+                tools={['React', 'Vite', 'Tailwind CSS', 'Redux Toolkit', 'JavaScript', 'Netlify']}
                 imgSrc={minesweeperImg}
+                imgAlt={'Screenshot of Minesweeper++ game with multiple game modes'}
                 link={'https://minesweeper-plus-plus.netlify.app'}
-                span={'Built a feature-rich Minesweeper clone using React and Redux for centralized game state management. Implemented multiple game modes, dynamic board generation, and efficient state updates, then deployed the project using Netlify.'}
+                viewText={'View live site'}
+                span={'Centralized game state management with Redux Toolkit. Multiple game modes, dynamic board generation, deployed on Netlify.'}
                 />
 
-                <ProjectBox name={'Sniff \'em out'} 
-                desc={'A mobile app where a group of people try to find who the odd man out is'} 
+                <ProjectBox name={'Sniff Em Out'} 
+                desc={'Social deduction mobile app — find the odd person out'} 
                 tools={['Swift', 'XCode', 'Figma']}
                 imgSrc={sniffEmOutImg}
+                imgAlt={'Screenshot of Sniff Em Out social deduction mobile app'}
                 link={'https://drive.google.com/file/d/1Pk4NPj4TG63vfzaTHY2iCFxYT-HY1uBJ/view'}
-                span={'Developed Sniff \'em out as a social deduction experience using Swift and Xcode, prioritizing a "pass-and-play" mobile architecture. I designed and customize a branded UI and implemented a custom back-end system that handles state management to handle the topic and each players roles.'}
+                viewText={'View project file'}
+                span={'Pass-and-play mobile architecture with a custom branded UI and custom backend for state management.'}
                 />
 
                 <ProjectBox name={'Lichess Revamped'} 
-                desc={'Lichess browser extension '} 
-                tools={['Javascript', 'HTML', 'CSS']}
+                desc={'Lichess.com browser extension with board visualizer'} 
+                tools={['JavaScript', 'HTML', 'CSS']}
                 imgSrc={LichessRevampedImg}
+                imgAlt={'Screenshot of Lichess Revamped browser extension board visualizer'}
                 link={'https://github.com/LucaJMazz/LichessRavamped'}
-                span={'Developed a browser extension for Lichess.com that adds custom styling, assets and a fully finished board visualizer that scraped your live games to get real time move data. I used chess.js and chessboard.js to create the workign chessboard and injected custom html and css styling into the page to change the look.'}
+                viewText={'View on GitHub'}
+                span={'Browser extension that adds custom styling and a board visualizer scraping live games for real-time move data.'}
                 />
 
             </div>
@@ -70,12 +81,12 @@ function Projects() {
     );
 }
 
-function ProjectBox({ name, desc, tools, imgSrc, link, span}) {
+function ProjectBox({ name, desc, tools, imgSrc, imgAlt, link, viewText, span}) {
     return (
         <div className='box-glass'>
         <div className='project-box h-full'>
             <h2 className='jetbrains-mono text-xl font-extrabold'>{name}</h2>
-            <h2 className='jetbrains-mono text-gray-500 mb-5'>{desc}</h2>
+            <h2 className='jetbrains-mono text-gray-600 mb-5'>{desc}</h2>
             <div className='flex flex-row justify-start items-center flex-wrap'>
                 {tools.map((tool, index) => {
                     return <div key={index} className='tool jetbrains-mono text-xs m-0.5'>{tool}</div>
@@ -83,8 +94,10 @@ function ProjectBox({ name, desc, tools, imgSrc, link, span}) {
             </div>
             <hr className='h-0.5 my-5'/>
             <div className='flex flex-col justify-center items-center'>
-                <a href={link} target='_blank'><img src={imgSrc}></img></a>
-                <p className='jetbrains-mono text-sm text-gray-500 mb-5'>click to open project</p>
+                <a href={link} target='_blank' rel="noopener noreferrer" aria-label={`Open ${name} project`}>
+                    <img src={imgSrc} alt={imgAlt} width={800} height={450} loading="lazy" decoding="async" />
+                </a>
+                <p className='jetbrains-mono text-sm text-gray-600 mb-5'>{viewText}</p>
             </div>
             <span className='jetbrains-mono text-sm text-gray-800 mb-5'>{span}</span>
         </div>

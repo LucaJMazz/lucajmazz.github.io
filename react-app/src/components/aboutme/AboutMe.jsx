@@ -9,12 +9,36 @@ import LinePattern from '../patterns/LinePattern';
 import PatternDivider from '../dividers/PatternDivider'
 import { LuAppWindow } from "react-icons/lu";
 import { HiPaintBrush } from "react-icons/hi2";
-import { FaLaptopCode } from "react-icons/fa";
+import { FaLaptopCode, FaGraduationCap, FaUsers } from "react-icons/fa";
 import { IoIosGitBranch } from "react-icons/io";
+
+const skillGroups = [
+    {
+        title: 'Languages',
+        icon: FaLaptopCode,
+        items: ['Java', 'JavaScript', 'TypeScript', 'Python', 'C', 'SQL', 'Swift', 'HTML/CSS'],
+    },
+    {
+        title: 'Frameworks',
+        icon: LuAppWindow,
+        items: ['React', 'React Native', 'Node.js', 'Express.js', 'Spring Boot', 'Vite', 'Tailwind CSS'],
+    },
+    {
+        title: 'Libraries',
+        icon: IoIosGitBranch,
+        items: ['Redux Toolkit', 'Framer Motion', 'JUnit', 'Firebase', 'MathQuill'],
+    },
+    {
+        title: 'Developer Tools',
+        icon: HiPaintBrush,
+        items: ['Git', 'GitHub', 'Docker', 'VS Code', 'IntelliJ IDEA', 'Eclipse', 'Visual Studio', 'Postman', 'Figma', 'Microsoft Azure', 'Netlify', 'Render', 'Cloudflare'],
+    },
+];
 
 function AboutMe() {
     const summaryRef = useRef(null);
     const educationRef = useRef(null);
+    const experienceRef = useRef(null);
     const skillsRef = useRef(null);
 
     const scrollTo = (ref) => {
@@ -34,14 +58,16 @@ function AboutMe() {
             <div className='flex flex-row justify-center items-center sections'>
                 <p onClick={() => {scrollTo(summaryRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Summary</p>
                 <p onClick={() => {scrollTo(educationRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Education</p>
+                <p onClick={() => {scrollTo(experienceRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Experience</p>
                 <p onClick={() => {scrollTo(skillsRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Skills</p>
             </div>
 
             <div ref={summaryRef} className='flex flex-row justify-center items-center mb-5 mx-50'>
-                <span className='p-10 jetbrains-mono text-xl'>Hi, I’m Luca.
-                        I’m a <b className='font-extrabold'>Computer Science</b> student at <b className='font-extrabold'>York University</b> with an interdisciplinary background in <b className='font-extrabold'>art and design</b>. I specialize in building visually polished, interactive coded experiences backed by strong technical foundations.
-                        <div className='m-5'/>
-                        I enjoy working at the intersection of design and development, translating creative ideas into clean, functional, and scalable code.
+                <span className='p-10 jetbrains-mono text-xl'>Hi, I'm Luca.
+                        I'm a third-year Computer Science student at York University's Lassonde School of Engineering.
+                        I build full-stack web apps and games using React, Java, and Spring Boot.
+                        I also work as a math tutor, which has taught me how to explain complex ideas clearly and debug problems step by step.
+                        I'm looking for software development co-op and internship opportunities.
                 </span>
                 <motion.div 
                 initial={{ scale: 0.5 }}
@@ -51,7 +77,7 @@ function AboutMe() {
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className='portrait-before shrink-0  m-5'>
                     <div className='portrait shrink-0 flex flex-col justify-center items-center'>
-                        <img className='object-center object-cover' src={suitImg}></img>
+                        <img className='object-center object-cover' src={suitImg} alt="Professional headshot of Luca Mazzotta in a suit" width={560} height={560} loading="lazy" decoding="async" style={{width: '280px', height: 'auto'}}></img>
                         <p className='mt-4 jetbrains-mono text-xl text-black'> Luca Mazzotta</p>
                     </div>
                 </motion.div>
@@ -70,8 +96,9 @@ function AboutMe() {
                             exit={{ width: 0 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }} />
                     </h2>
-                    I am a York University student currently pursuing a <b>Lassonde School of Engineering,
-                    B.Sc., Special Honours Computer Science</b> degree. I began my studies in Digital Media, developing a strong foundation in design and user-centered thinking, before transferring into Computer Science to strengthen my technical skill set. This interdisciplinary background allows me to combine creative problem-solving with strong programming skills while focusing on practical, real-world projects.
+                    I'm a third-year Computer Science student at York University's Lassonde School of Engineering, pursuing a B.Sc., Specialized Honours in Computer Science (Sept. 2023 to present).
+                    <br/><br/>
+                    <b>Relevant coursework:</b> Theory of Computation, Computer Organization, Advanced Object-Oriented Programming, Discrete Math, Applied Linear Algebra, Fundamentals of Data Structures, Introduction to AI and Logic Programming, Operating System Fundamentals.
                 </div>
             <div className='scale-130'><IdCard /></div>
             </div>
@@ -84,10 +111,10 @@ function AboutMe() {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 >
-                <a href='https://www.mayfieldarts.com/visualarts' target="_blank"><div className='info-card my-20 m-5 p-5' 
+                <a href='https://www.mayfieldarts.com/visualarts' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
                 title='Visit Mayfield VA RAP page'>
                     <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>Visual Arts, Regional Arts Program</p>
-                    <p className='text-gray-500 mb-2'>Mayfield S.S, 2019-2023</p>
+                    <p className='text-gray-700 mb-2'>Mayfield S.S, 2019-2023</p>
                     <hr className='h-0.5'/>
                     <ul className="list-disc ml-8 mt-4 space-y-2 text-gray-600">
                         <li>Foundations in visual art techniques and media (drawing, painting, sculpture)</li>
@@ -97,10 +124,10 @@ function AboutMe() {
                         <li>Critical reflection, analysis, and art research skills</li>
                     </ul>
                 </div></a>
-                <a href='https://ampd.yorku.ca/department-of-computational-arts/digital-media/' target="_blank"><div className='info-card my-20 m-5 p-5' 
+                <a href='https://ampd.yorku.ca/department-of-computational-arts/digital-media/' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
                 title='Visit York U Digital Media page'>
                     <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>Digital Media Program</p>
-                    <p className='text-gray-500 mb-2'>York University, 2023-2024</p>
+                    <p className='text-gray-700 mb-2'>York University, 2023-2024</p>
                     <hr className='h-0.5'/>
                     <ul className="list-disc ml-8 mt-4 space-y-2 text-gray-600">
                         <li>UI / UX design principles & user-centered workflows</li>
@@ -110,10 +137,10 @@ function AboutMe() {
                         <li>Collaboration on interdisciplinary creative projects</li>
                     </ul>
                 </div></a>
-                <a href='https://lassonde.yorku.ca/academics/computer-science' target="_blank"><div className='info-card my-20 m-5 p-5' 
+                <a href='https://lassonde.yorku.ca/academics/computer-science' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
                 title='Visit Lassonde Computer Science page'>
-                    <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>B.Sc. Special Honours Computer Science</p>
-                    <p className='text-gray-500 mb-2'>York University, 2024-Present</p>
+                    <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>B.Sc. Specialized Honours Computer Science</p>
+                    <p className='text-gray-700 mb-2'>York University, Sept. 2023–Present</p>
                     <hr className='h-0.5'/>
                     <ul className="list-disc ml-8 mt-4 space-y-2 text-gray-600">
                         <li>Programming fundamentals (Java, JavaScript, Python)</li>
@@ -128,69 +155,86 @@ function AboutMe() {
 
             <PatternDivider />
 
+            <div ref={experienceRef} className='flex flex-col justify-center items-center mt-5 mb-10'>
+                <div className='title'>
+                    <p>[</p> <h2>Experience</h2> <p>]</p>
+                </div>
+                <p className="jetbrains-mono subtitle">Where I've worked and what I've done.</p>
+                <hr className="h-1 mb-5 mt-2 subtitle"/>
+                <div className='mt-8 grid grid-cols-2 gap-10'>
+                <motion.div className='skill-box'
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                    <div className='flex flex-row justify-start items-center m-0'>
+                        <FaGraduationCap className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
+                        <h3 className='jetbrains-mono text-2xl font-extrabold'>Advanced Math Tutor</h3>
+                    </div>
+                    <hr className='h-0.5 mt-2'/>
+                    <p className='jetbrains-mono text-sm text-gray-300 mt-4 mb-3'>Scholars Education, Bolton, ON</p>
+                    <span className='skill-chip jetbrains-mono'>Nov. 2024 – Present</span>
+                    <ul className="jetbrains-mono list-disc ml-8 mt-4 space-y-2 text-gray-300">
+                            <li>One-on-one and small-group math and problem-solving instruction for 30+ students in Grades 1-12</li>
+                            <li>Finds each student's knowledge gaps and fixes them with a step-by-step, debugging-style approach</li>
+                            <li>Tracks progress and adjusts lessons based on results</li>
+                            <li>Explains technical ideas in simple language to students and parents</li>
+                    </ul>
+                </motion.div>
+                <motion.div className='skill-box'
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                    <div className='flex flex-row justify-start items-center m-0'>
+                        <FaUsers className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
+                        <h3 className='jetbrains-mono text-2xl font-extrabold'>Camp Counsellor</h3>
+                    </div>
+                    <hr className='h-0.5 mt-2'/>
+                    <p className='jetbrains-mono text-sm text-gray-300 mt-4 mb-3'>Town of Caledon, Bolton, ON</p>
+                    <span className='skill-chip jetbrains-mono'>June 2025 – Aug. 2025</span>
+                    <ul className="jetbrains-mono list-disc ml-8 mt-4 space-y-2 text-gray-300">
+                            <li>Led daily programming for 20+ campers</li>
+                            <li>Coordinated with staff on materials and logistics for 5+ daily activities</li>
+                            <li>Followed safety protocols during all activities</li>
+                    </ul>
+                </motion.div>
+                </div>
+            </div>
+
+            <PatternDivider />
+
             <div ref={skillsRef} className='flex flex-col justify-center items-center mt-5'>
                 <div className='title'>
-                    <p>[</p> <h1>Skills</h1> <p>]</p>
+                    <p>[</p> <h2>Skills</h2> <p>]</p>
                 </div>
-                <p className="jetbrains-mono subtitle">A mix of technical, creative, and problem-solving skills I've developed through school, personal projects, and self-study.</p>
+                <p className="jetbrains-mono subtitle">Languages, frameworks, libraries, and developer tools I use.</p>
                 <hr className="h-1 mb-5 mt-2 subtitle"/>
-                <div className='mt-8 grid grid-cols-2 grid-rows-2 gap-10'>
-                <div className='skill-box'>
-                    <div className='flex flex-row justify-start items-center m-0'>
-                        <FaLaptopCode className='mx-5 text-3xl'/>
-                        <h2 className='jetbrains-mono text-2xl'>Software Development</h2>
-                    </div>
-                    <hr className='h-0.5 mt-2'/>
-                    <ul className="list-disc ml-8 mt-6 space-y-2 text-gray-400">
-                            <li>JavaScript, Java, C, Swift, and Python programming</li>
-                            <li>Data structures & algorithms</li>
-                            <li>Object-oriented design (OOP)</li>
-                            <li>Problem solving & debugging</li>
-                            <li>Foundations of software architecture</li>
-                    </ul>
-                </div>
-                <div className='skill-box'>
-                    <div className='flex flex-row justify-start items-center m-0'>
-                        <HiPaintBrush className='mx-5 text-3xl'/>
-                        <h2 className='jetbrains-mono text-2xl'>UI/UX Design</h2>
-                    </div>
-                    <hr className='h-0.5 mt-2'/>
-                    <ul className="list-disc ml-8 mt-6 space-y-2 text-gray-400">
-                            <li>User-centered design principles</li>
-                            <li>Visual hierarchy, layout, and spacing</li>
-                            <li>Interaction & motion design</li>
-                            <li>Design iteration and critique</li>
-                            <li>Translating designs into usable interfaces</li>
-                    </ul>
-                </div>
-                <div className='skill-box'>
-                    <div className='flex flex-row justify-start items-center m-0'>
-                        <LuAppWindow className='mx-5 text-3xl'/>
-                        <h2 className='jetbrains-mono text-2xl'>Web Development</h2>
-                    </div>
-                    <hr className='h-0.5 mt-2'/>
-                    <ul className="list-disc ml-8 mt-6 space-y-2 text-gray-400">
-                            <li>React.js & component-based architecture</li>
-                            <li>HTML5, CSS3, and modern JavaScript (ES6+)</li>
-                            <li>Tailwind CSS for responsive layouts</li>
-                            <li>Client-side routing & state management</li>
-                            <li>Accessible, responsive UI development</li>
-                    </ul>
-                </div>
-                <div className='skill-box'>
-                    <div className='flex flex-row justify-start items-center m-0'>
-                        <IoIosGitBranch className='mx-5 text-3xl'/>
-                        <h2 className='jetbrains-mono text-2xl'>Tools & Workflow</h2>
-                    </div>
-                    <hr className='h-0.5 mt-2'/>
-                    <ul className="list-disc ml-8 mt-6 space-y-2 text-gray-400">
-                            <li>Git & GitHub version control</li>
-                            <li>Agile & iterative development workflow</li>
-                            <li>Debugging & browser dev tools</li>
-                            <li>Component reuse & code organization</li>
-                            <li>Design-development collaboration</li>
-                    </ul>
-                </div>
+                <div className='mt-8 grid grid-cols-2 gap-10'>
+                {skillGroups.map((group) => {
+                    const Icon = group.icon;
+                    return (
+                    <motion.div key={group.title} className='skill-box'
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    >
+                        <div className='flex flex-row justify-start items-center m-0'>
+                            <Icon className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
+                            <h3 className='jetbrains-mono text-2xl font-extrabold'>{group.title}</h3>
+                        </div>
+                        <hr className='h-0.5 mt-2'/>
+                        <ul role='list' className='skill-chips'>
+                                {group.items.map((item) => (
+                                    <li key={item} className='skill-chip jetbrains-mono'>{item}</li>
+                                ))}
+                        </ul>
+                    </motion.div>
+                    );
+                })}
                 </div>
             </div>
         </div>
@@ -234,7 +278,7 @@ function IdCard() {
     };
 
     return (
-        <a href='https://www.yorku.ca' target="_blank"><motion.div 
+        <a href='https://www.yorku.ca' target="_blank" rel="noopener noreferrer"><motion.div 
             title="Visit York University"
             className='card shrink-0 mx-4 md:mx-15'
             onMouseMove={handleMouseMove}
@@ -278,9 +322,9 @@ function IdCard() {
                     }}
                 />
             )}
-            <img className='york-logo' src={yorkLogo} alt='york-u-logo' />
-            <img className='building-bar' src={variHall} alt='vari-hall' />
-            <div className='photo-mask'><img className='id-photo' src={idImage} alt='id-image'/></div>
+            <img className='york-logo' src={yorkLogo} alt="York University logo representing Lassonde School of Engineering" loading="lazy" decoding="async" />
+            <img className='building-bar' src={variHall} alt="York University Vari Hall building campus photo" width={300} height={174} loading="lazy" decoding="async" />
+            <div className='photo-mask'><img className='id-photo' src={idImage} alt="Luca Mazzotta University ID card photo" width={700} height={930} loading="lazy" decoding="async" style={{width: '100%', height: 'auto', maxWidth: '280px'}}/></div>
             <span>
                 <p className='font-extrabold'>Luca Mazzotta</p>
                 <p>B.Sc. Computer Science</p>

@@ -1,0 +1,12 @@
+# Luca Mazzotta
+
+Software developer and Computational Arts student at York University, specializing in React, Java, Spring Boot, Firebase, AI, and interactive web applications.
+
+## Projects
+
+- Portfolio Site: https://lucajmazz.github.io/ - Personal portfolio built with React, Vite, Tailwind CSS, and Framer Motion
+- Minute Math: https://minutemath.netlify.app - Daily math puzzle game inspired by Wordle, built with React and Firebase
+- Blockify: https://blockify-a4aaeabxcsfndne9.northcentralus-01.azurewebsites.net - Full-stack image-to-Minecraft-block converter with Java and Spring Boot
+- Minesweeper++: https://minesweeper-plus-plus.netlify.app - Feature-rich Minesweeper clone with React and Redux
+- Sniff Em Out: Social deduction mobile app built with Swift and Xcode
+- Lichess Revamped: https://github.com/LucaJMazz/LichessRavamped - Lichess.com browser extension with board visualizer

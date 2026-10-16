@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react'
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from 'react'
+import { Routes, Route } from "react-router-dom";
 import Home from './Home';
-import AboutMe from './components/aboutme/AboutMe.jsx'
-import Projects from './components/projectspage/Projects.jsx';
+const AboutMe = lazy(() => import('./components/aboutme/AboutMe.jsx'))
+const Projects = lazy(() => import('./components/projectspage/Projects.jsx'));
+const CreativeWorks = lazy(() => import('./components/creative-works/CreativeWorks.jsx'));
+const NoPath = lazy(() => import('./components/404/NoPath.jsx'));
 import './App.css'
-import CreativeWorks from './components/creative-works/CreativeWorks.jsx';
-import NoPath from './components/404/NoPath.jsx';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about-me" element={<AboutMe />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/creative-works" element={<CreativeWorks />} />
-      <Route path="*" element={<NoPath />} />
-    </Routes>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about-me" element={<AboutMe />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/creative-works" element={<CreativeWorks />} />
+        <Route path="*" element={<NoPath />} />
+      </Routes>
+    </Suspense>
   )
 }
 

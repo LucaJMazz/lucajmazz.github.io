@@ -9,9 +9,9 @@ import Footer from './components/footer/footer.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
-      <Navbar />
-      <App />
-      <Footer />
+      <nav><Navbar /></nav>
+      <main><App /></main>
+      <footer><Footer /></footer>
     </HashRouter>
   </StrictMode>,
 )
