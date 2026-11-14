@@ -19,16 +19,34 @@
     position: relative;
 }
 
+.creative-works-subtitle-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    width: fit-content;
+    max-width: 90%;
+    margin-inline: auto;
+}
+
 .creative-works-subtitle {
+    width: 100%;
+    text-align: center;
     color: rgba(217, 217, 217, 0.62);
     font-size: 0.8rem;
 }
 
 .creative-works-rule {
-    width: 6.5rem;
+    width: 100%;
     height: 0.35rem;
     border-radius: 999px;
-    margin-top: 0.25rem;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 240ms ease-in-out var(--reveal-delay, 0ms);
+}
+
+.creative-works-rule.in-view {
+    transform: scaleX(1);
 }
 
 .creative-works-grid {

@@ -119,12 +119,14 @@
 
 /* CSS replacement for framer-motion's whileInView width animation. */
 .about-me-container .reveal-line {
-    width: 0;
-    transition: width 240ms ease-in-out var(--reveal-delay, 0ms);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 240ms ease-in-out var(--reveal-delay, 0ms);
 }
 
 .about-me-container .reveal-line.in-view {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 .eduboxes {
@@ -576,8 +578,17 @@
     font-size: clamp(.8rem, 1.5vw, 3rem);
 }
 
+.subtitle-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: fit-content;
+    max-width: min(90%, 48rem);
+    margin-inline: auto;
+}
+
 p.subtitle {
-    width: 70%;
+    width: 100%;
     justify-content: center;
     text-align: center;
 }
@@ -593,7 +604,6 @@ p.subtitle {
 }
 
 .about-me-container hr.subtitle {
-    width: 6.5rem;
     height: 0.35rem;
     border-radius: 999px;
 }
@@ -604,10 +614,7 @@ p.subtitle {
         font-size: clamp(0.75rem, 1.8vw, 1.2rem);
     }
     .about-me-container .subtitle {
-        width: 85%;
-    }
-    .about-me-container hr.subtitle {
-        width: 5.5rem;
+        font-size: 0.95rem;
     }
     .education-grid {
         grid-template-columns: repeat(auto-fit, minmax(18rem, 22rem));
@@ -700,11 +707,11 @@ p.subtitle {
         max-width: 26rem;
     }
     .about-me-container .subtitle {
-        width: 90%;
         font-size: 0.9rem;
     }
-    .about-me-container hr.subtitle {
-        width: 5rem;
+
+    .subtitle-group {
+        max-width: 100%;
     }
 
     /* Section links */

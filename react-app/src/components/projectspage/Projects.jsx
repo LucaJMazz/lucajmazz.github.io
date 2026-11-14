@@ -78,10 +78,12 @@ function Projects() {
             </div>
             <p className='projects-subtitle jetbrains-mono'>Things I've built, from daily-puzzle games to full-stack apps.</p>
             <LinePattern className={'pattern-bg'}>
-                <div className='projects-grid'>
-                    {projects.map((project) => (
-                        <ProjectBox key={project.name} {...project} />
-                    ))}
+                <div className='projects-content'>
+                    <div className='projects-grid'>
+                        {projects.map((project) => (
+                            <ProjectBox key={project.name} {...project} />
+                        ))}
+                    </div>
                 </div>
             </LinePattern>
         </div>

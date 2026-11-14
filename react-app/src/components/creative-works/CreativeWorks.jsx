@@ -1,5 +1,6 @@
 import './CreativeWorks.css'
 import { useState } from 'react'
+import Reveal from '../Reveal.jsx'
 import t1 from '../../assets/trip/t1.webp'
 import t2 from '../../assets/trip/t2.webp'
 import t3 from '../../assets/trip/t3.webp'
@@ -62,8 +63,10 @@ function CreativeWorks() {
                 <div className='title'>
                     <p>[</p> <h1>Creative works</h1> <p>]</p>
                 </div>
-                <p className='creative-works-subtitle jetbrains-mono'>Click an image to view it full size</p>
-                <hr className='creative-works-rule'/>
+                <div className='creative-works-subtitle-group'>
+                    <p className='creative-works-subtitle jetbrains-mono'>Click an image to view it full size</p>
+                    <Reveal as='hr' className='creative-works-rule' amount={0} delay={100} />
+                </div>
             </header>
             <div className='creative-works-grid'>
                 {works.map((work) => (

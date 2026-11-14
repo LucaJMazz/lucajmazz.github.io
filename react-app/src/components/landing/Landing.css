@@ -48,12 +48,14 @@
  * spring/tween values.
  */
 .landing-container .reveal-line {
-    width: 0;
-    transition: width 240ms ease-in-out var(--reveal-delay, 0ms);
+    width: 105%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 240ms ease-in-out var(--reveal-delay, 0ms);
 }
 
 .landing-container .reveal-line.in-view {
-    width: 105%;
+    transform: scaleX(1);
 }
 
 .landing-container .pop-in {

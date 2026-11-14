@@ -170,8 +170,10 @@ function AboutMe() {
                 <div className='title'>
                     <p>[</p> <h2>Experience</h2> <p>]</p>
                 </div>
-                <p className="jetbrains-mono subtitle">Where I've worked and what I've done.</p>
-                <hr className="h-1 mb-5 mt-2 subtitle"/>
+                <div className='subtitle-group'>
+                    <p className="jetbrains-mono subtitle">Where I've worked and what I've done.</p>
+                    <Reveal as='hr' className='h-1 mt-2 mb-5 subtitle reveal-line' amount={0} delay={100} />
+                </div>
                 <div className='mt-8 grid grid-cols-2 gap-10'>
                 <div className='skill-box'>
                     <div className='flex flex-row justify-start items-center m-0'>
@@ -211,8 +213,10 @@ function AboutMe() {
                 <div className='title'>
                     <p>[</p> <h2>Skills</h2> <p>]</p>
                 </div>
-                <p className="jetbrains-mono subtitle">Languages, frameworks, libraries, and developer tools I use.</p>
-                <hr className="h-1 mb-5 mt-2 subtitle"/>
+                <div className='subtitle-group'>
+                    <p className="jetbrains-mono subtitle">Languages, frameworks, libraries, and developer tools I use.</p>
+                    <Reveal as='hr' className='h-1 mt-2 mb-5 subtitle reveal-line' amount={0} delay={100} />
+                </div>
                 <div className='mt-8 grid grid-cols-2 gap-10'>
                 {skillGroups.map((group) => {
                     const Icon = group.icon;
