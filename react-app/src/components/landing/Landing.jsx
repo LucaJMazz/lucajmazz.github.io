@@ -28,7 +28,7 @@ function Landing() {
                     </Reveal>
 
                     <div className='linkContainer flex flex-row mt-10'>
-                        <a href="/Luca Mazzotta, Computer Science - Resume.pdf" download>
+                        <a href="/Luca Mazzotta, Computer Science Resume A.pdf" download>
                             <Reveal
                                 as='h2'
                                 delay={320}

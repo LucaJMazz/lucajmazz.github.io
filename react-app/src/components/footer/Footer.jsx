@@ -18,7 +18,7 @@ function Footer() {
                 <a href='https://github.com/LucaJMazz' className='jetbrains-mono underline'>Github</a>
                 <a href='https://www.linkedin.com/in/luca-j-mazzotta/' className='jetbrains-mono underline'>LinkedIn</a>
                 <a href='mailto:lucajmazz@gmail.com' className='jetbrains-mono underline'>{emailText}</a>
-                <a className='jetbrains-mono underline' href="/Luca Mazzotta, Computer Science - Resume.pdf" download>Resume.pdf</a>
+                <a className='jetbrains-mono underline' href="/Luca Mazzotta, Computer Science Resume A.pdf" download>Resume.pdf</a>
             </div>
         </div>
     );
