@@ -1,6 +1,5 @@
 import './CreativeWorks.css'
 import { useState } from 'react'
-import LinePattern from '../patterns/LinePattern'
 import t1 from '../../assets/trip/t1.webp'
 import t2 from '../../assets/trip/t2.webp'
 import t3 from '../../assets/trip/t3.webp'
@@ -17,134 +16,142 @@ import b2 from '../../assets/blender/IMG_1689.webp'
 import b3 from '../../assets/blender/PopFigureIphone1.webp'
 import b4 from '../../assets/blender/TVpfp.webp'
 
+const works = [
+    {
+        name: 'Triptych, Gallery 1313',
+        date: 'May 2023',
+        images: [t1, t2, t3],
+        points: [
+            'Triptych acrylic painting exhibited at Gallery 1313 during the May–June 2023 group exhibition',
+            'Displayed in a professional gallery setting alongside works by other artists',
+            'Composed of three interconnected, fictional video game environments rendered in a 3D-inspired style',
+            'Uses game-like worlds to reflect the monotony and “zombie-like” repetition of committing to a single lifelong job',
+            'Explores themes of routine, progression, and the tension between perceived choice and lived reality',
+        ],
+    },
+    {
+        name: 'Posters, York University Art Market',
+        date: 'November 2024',
+        images: [p1, p2, p3, p4, p5, p6],
+        points: [
+            'Series of digitally illustrated posters created using Photoshop',
+            'Designed with a focus on bold composition, color, and graphic impact',
+            'Printed and sold at the York University Art Market in November 2024',
+            'Independently ran a personal booth, handling display, pricing, and sales',
+            'Provided hands-on experience with presenting, marketing, and selling original artwork in a public setting',
+        ],
+    },
+    {
+        name: 'Various 3D Models, (Blender, Substance Painter, Z-Brush)',
+        date: '2023 - 2025',
+        images: [b1, b2, b3, b4],
+        points: [
+            'Collection of 3D models created using Blender, ZBrush, and Substance Painter',
+            'Focused on clean topology, efficient geometry, and optimized assets for real-time use',
+            'Experience with modeling, texturing, UV unwrapping, and material workflows',
+            'Explores both stylized and semi-realistic forms, emphasizing readability and structure',
+            'Demonstrates iterative design, technical problem-solving, and attention to detail in 3D pipelines',
+        ],
+    },
+];
 
 function CreativeWorks() {
     return (
-        <>
-        <div className='flex flex-row justify-center items-center'>
-        <div className='creative-works-container flex flex-col justify-center items-center shrink-0'>
-            <div className='flex flex-col justify-center items-center m-2 mb-5 shrink-0'>
+        <section className='creative-works-container'>
+            <header className='creative-works-header'>
                 <div className='title'>
-                <p>[</p> <h1>Creative works</h1> <p>]</p>
+                    <p>[</p> <h1>Creative works</h1> <p>]</p>
                 </div>
-                <p className='jetbrains-mono'>Hover and click on an image to see it in full scale</p>
-                <hr className='h-1'/>
+                <p className='creative-works-subtitle jetbrains-mono'>Click an image to view it full size</p>
+                <hr className='creative-works-rule'/>
+            </header>
+            <div className='creative-works-grid'>
+                {works.map((work) => (
+                    <Artwork key={work.name} {...work} />
+                ))}
             </div>
-            <Artwork name={'Triptych, Gallery 1313'} 
-            imgs={[t1, t2, t3]} desc={'May 2023'} 
-                span={
-                    <>
-                    <li>Triptych acrylic painting exhibited at Gallery 1313 during the May–June 2023 group exhibition</li>
-                    <li>Displayed in a professional gallery setting alongside works by other artists</li>
-                    <li>Composed of three interconnected, fictional video game environments rendered in a 3D-inspired style</li>
-                    <li>Uses game-like worlds to reflect the monotony and “zombie-like” repetition of committing to a single lifelong job</li>
-                    <li>Explores themes of routine, progression, and the tension between perceived choice and lived reality</li>
-                    </>
-                }/>
-
-            <Artwork name={'Posters, York University Art Market'} 
-            imgs={[p1, p2, p3, p4, p5, p6]} desc={'November 2024'} 
-                span={
-                    <>
-                    <li>Series of digitally illustrated posters created using Photoshop</li>
-                    <li>Designed with a focus on bold composition, color, and graphic impact</li>
-                    <li>Printed and sold at the York University Art Market in November 2024</li>
-                    <li>Independently ran a personal booth, handling display, pricing, and sales</li>
-                    <li>Provided hands-on experience with presenting, marketing, and selling original artwork in a public setting</li>
-                    </>
-                }/>
-
-            <Artwork name={'Various 3D Models, (Blender, Substance Painter, Z-Brush)'} 
-            imgs={[b1, b2, b3, b4]} desc={'2023 - 2025'} 
-                span={
-                    <>
-                    <li>Collection of 3D models created using Blender, ZBrush, and Substance Painter</li>
-                    <li>Focused on clean topology, efficient geometry, and optimized assets for real-time use</li>
-                    <li>Experience with modeling, texturing, UV unwrapping, and material workflows</li>
-                    <li>Explores both stylized and semi-realistic forms, emphasizing readability and structure</li>
-                    <li>Demonstrates iterative design, technical problem-solving, and attention to detail in 3D pipelines</li>
-                    </>
-                }/>
-        </div>
-        </div>
-        </>
+        </section>
     );
 }
 
-function Artwork({ name, desc, span, imgs}) {
+function Artwork({ name, date, images, points }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [zoomed, setZoomed] = useState(false);
+    const currentImage = images[currentIndex];
 
     const prevImage = () => {
-        setCurrentIndex((prev) => (prev === 0 ? imgs.length - 1 : prev - 1))
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
     }
 
     const nextImage = () => {
-        setCurrentIndex((prev) => (prev === imgs.length - 1 ? 0 : prev + 1))
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
     }
 
     return (
         <>
-        <div className="artwork-pattern mb-10 rounded-xl overflow-hidden">
-            <div className='artwork relative'>
-                <div className='art-overlay' />
-                <div className='art-accent' />
-                <div className='art-meta glass-card'>
-                    <h2 className='jetbrains-mono font-semibold text-lg'>{name}</h2>
-                    <h3 className='jetbrains-mono text-xs text-gray-300 mt-0.5'>{desc}</h3>
-                </div>
-                <div className='flex flex-col items-center'>
-                    <div className='image-holder'>
-                        <img
-                            onClick={() => {
-                                setZoomed(true);
-                            }}
-                            className='cursor-zoom-in'
-                            src={imgs[currentIndex]}
-                            alt={`Artwork ${currentIndex + 1}`}
-                            width={1000}
-                            height={1000}
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </div>
-
-                    <div className='art-buttons flex flex-row gap-4 justify-center'>
-                        <button
-                            onClick={prevImage}
-                            className='art-button jetbrains-mono px-3 py-1.5 border rounded text-sm'
-                        >
-                            Prev
-                        </button>
-                        <button
-                            onClick={nextImage}
-                            className='art-button jetbrains-mono px-3 py-1.5 border rounded text-sm'
-                        >
-                            Next
-                        </button>
-                    </div>
-                </div>
-                <div className='glass-card mt-3'>
-                    <span className='jetbrains-mono'>
-                        <ul className="list-disc ml-5 space-y-1 text-xs">
-                            {span}
-                        </ul>
-                    </span>
-                </div>
+        <article className='artwork-card'>
+            <div className='artwork-media'>
+                <button
+                    type='button'
+                    className='artwork-image-button'
+                    onClick={() => setZoomed(true)}
+                    aria-label={`View ${name} image ${currentIndex + 1} full size`}
+                >
+                    <img
+                        src={currentImage}
+                        alt={`${name} artwork ${currentIndex + 1}`}
+                        width={1000}
+                        height={1000}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </button>
+                <button
+                    type='button'
+                    className='artwork-arrow artwork-arrow-prev'
+                    onClick={prevImage}
+                    aria-label='Previous image'
+                >
+                    ‹
+                </button>
+                <button
+                    type='button'
+                    className='artwork-arrow artwork-arrow-next'
+                    onClick={nextImage}
+                    aria-label='Next image'
+                >
+                    ›
+                </button>
+                <span className='artwork-date jetbrains-mono'>{date}</span>
+                <span className='artwork-count jetbrains-mono'>{currentIndex + 1} / {images.length}</span>
             </div>
-        </div>
-        {zoomed && <div 
-        className='blur-bg'
-        onClick={() => setZoomed(false)}
-        >
-            <img 
-                src={imgs[currentIndex]}
-                alt={`Artwork ${currentIndex + 1}`}
-                width={1000}
-                height={1000}
-                loading="lazy"
-                decoding="async"/>
-        </div>}
+            <div className='artwork-content'>
+                <h2 className='jetbrains-mono'>{name}</h2>
+                <ul className='artwork-points jetbrains-mono'>
+                    {points.map((point) => (
+                        <li key={point}>{point}</li>
+                    ))}
+                </ul>
+            </div>
+        </article>
+        {zoomed && (
+            <div
+                className='blur-bg'
+                onClick={() => setZoomed(false)}
+                role='dialog'
+                aria-modal='true'
+                aria-label={`${name} full size image`}
+            >
+                <img
+                    src={currentImage}
+                    alt={`${name} artwork ${currentIndex + 1}`}
+                    width={1000}
+                    height={1000}
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+        )}
         </>
     );
 }

@@ -14,8 +14,8 @@ function Projects() {
                 <p>[</p> <h1>Projects</h1> <p>]</p>
             </div>
             <LinePattern className={'pattern-bg'}>
-            <div className='py-15 w-dvw flex justify-center items-center'>
-            <div className='grid grid-cols-2 grid-rows-2 gap-15'>
+            <div className='projects-content flex justify-center items-center'>
+            <div className='projects-grid'>
                 <ProjectBox name={'Blockify'} 
                 desc={'Image-to-Minecraft-block-art converter with a Spring Boot REST API'} 
                 tools={['Java', 'Spring Boot', 'Maven', 'REST API', 'Azure']}
@@ -97,7 +97,7 @@ function ProjectBox({ name, desc, tools, imgSrc, imgAlt, link, viewText, span}) 
                 <a href={link} target='_blank' rel="noopener noreferrer" aria-label={`Open ${name} project`}>
                     <img src={imgSrc} alt={imgAlt} width={800} height={450} loading="lazy" decoding="async" />
                 </a>
-                <p className='jetbrains-mono text-sm text-gray-600 mb-5'>{viewText}</p>
+                <p className='jetbrains-mono text-sm text-gray-600 mt-2 mb-5'>{viewText}</p>
             </div>
             <span className='jetbrains-mono text-sm text-gray-800 mb-5'>{span}</span>
         </div>

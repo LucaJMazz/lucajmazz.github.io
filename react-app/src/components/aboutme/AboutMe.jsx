@@ -1,12 +1,15 @@
 import './AboutMe.css'
 import yorkLogo from '../../assets/york-u-logo.webp';
-import variHall from '../../assets/vari-hall.webp';
+import variHallCard from '../../assets/education/vari-hall-card.webp';
+import mayfieldSchool from '../../assets/mayfieldss.webp';
+import secondLassonde from '../../assets/second-lassonde.webp';
 import idImage from '../../assets/id-image.webp';
 import suitImg from '../../assets/suit.webp'
 import { useRef } from 'react';
 import LinePattern from '../patterns/LinePattern';
 import PatternDivider from '../dividers/PatternDivider'
 import Reveal from '../Reveal';
+import { useTilt } from '../../hooks/useTilt';
 import { LuAppWindow } from "react-icons/lu";
 import { HiPaintBrush } from "react-icons/hi2";
 import { FaLaptopCode, FaGraduationCap, FaUsers } from "react-icons/fa";
@@ -32,6 +35,62 @@ const skillGroups = [
         title: 'Developer Tools',
         icon: HiPaintBrush,
         items: ['Git', 'GitHub', 'Docker', 'VS Code', 'IntelliJ IDEA', 'Eclipse', 'Visual Studio', 'Postman', 'Figma', 'Microsoft Azure', 'Netlify', 'Render', 'Cloudflare'],
+    },
+];
+
+// Vari Hall photo: Andrei Sedoff, CC BY 3.0, via Wikimedia Commons.
+const educationCards = [
+    {
+        title: 'Visual Arts, Regional Arts Program',
+        school: 'Mayfield S.S',
+        years: '2019–2023',
+        href: 'https://www.mayfieldarts.com/visualarts',
+        linkTitle: 'Visit Mayfield VA RAP page',
+        image: mayfieldSchool,
+        imageAlt: 'Mayfield Secondary School building',
+        imagePosition: 'center 55%',
+        points: [
+            'Foundations in visual art techniques and media (drawing, painting, sculpture)',
+            'Creative problem solving and conceptual development',
+            'Portfolio creation & artistic voice development',
+            'Visual communication and design principles',
+            'Critical reflection, analysis, and art research skills',
+        ],
+    },
+    {
+        title: 'Digital Media Program',
+        school: 'York University',
+        years: '2023–2024',
+        href: 'https://ampd.yorku.ca/department-of-computational-arts/digital-media/',
+        linkTitle: 'Visit York U Digital Media page',
+        image: variHallCard,
+        imageAlt: 'Vari Hall on the York University Keele campus',
+        imagePosition: 'center 55%',
+        credit: 'Photo: Andrei Sedoff · CC BY 3.0',
+        points: [
+            'UI / UX design principles & user-centered workflows',
+            'Graphic design, branding, and visual systems',
+            'Interactivity of computing and society',
+            'Creative problem-solving & design iteration',
+            'Collaboration on interdisciplinary creative projects',
+        ],
+    },
+    {
+        title: 'B.Sc. Specialized Honours Computer Science',
+        school: 'York University',
+        years: 'Sept. 2024–Present',
+        href: 'https://lassonde.yorku.ca/academics/computer-science',
+        linkTitle: 'Visit Lassonde Computer Science page',
+        image: secondLassonde,
+        imageAlt: 'Second Lassonde building, the Bergeron Centre for Engineering Excellence, at York University',
+        imagePosition: 'center 50%',
+        points: [
+            'Programming fundamentals (Java, JavaScript, Python)',
+            'Data structures, algorithms, and problem solving',
+            'Object-oriented design & software architecture',
+            'Web development with modern frameworks (React)',
+            'Mathematical foundations for computing',
+        ],
     },
 ];
 
@@ -71,8 +130,13 @@ function AboutMe() {
                 </span>
                 <div className='portrait-before shrink-0  m-5'>
                     <div className='portrait shrink-0 flex flex-col justify-center items-center'>
-                        <img className='object-center object-cover' src={suitImg} alt="Professional headshot of Luca Mazzotta in a suit" width={560} height={560} loading="lazy" decoding="async" style={{width: '280px', height: 'auto'}}></img>
-                        <p className='mt-4 jetbrains-mono text-xl text-black'> Luca Mazzotta</p>
+                        <div className='portrait-photo-frame'>
+                            <img className='object-center object-cover' src={suitImg} alt="Professional headshot of Luca Mazzotta in a suit" width={560} height={560} loading="lazy" decoding="async" />
+                        </div>
+                        <div className='portrait-copy'>
+                            <p className='portrait-name jetbrains-mono'>Luca Mazzotta</p>
+                            <p className='portrait-role jetbrains-mono'>B.Sc. Computer Science</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,47 +156,11 @@ function AboutMe() {
             </div>
             </LinePattern>
 
-            <div className='eduboxes flex flex-row justify-center align-middle'>
-                <div className='flex flex-row justify-center align-middle'>
-                <a href='https://www.mayfieldarts.com/visualarts' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
-                title='Visit Mayfield VA RAP page'>
-                    <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>Visual Arts, Regional Arts Program</p>
-                    <p className='text-gray-700 mb-2'>Mayfield S.S, 2019-2023</p>
-                    <hr className='h-0.5'/>
-                    <ul className="list-disc ml-8 mt-4 space-y-2 text-gray-600">
-                        <li>Foundations in visual art techniques and media (drawing, painting, sculpture)</li>
-                        <li>Creative problem solving and conceptual development</li>
-                        <li>Portfolio creation & artistic voice development</li>
-                        <li>Visual communication and design principles</li>
-                        <li>Critical reflection, analysis, and art research skills</li>
-                    </ul>
-                </div></a>
-                <a href='https://ampd.yorku.ca/department-of-computational-arts/digital-media/' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
-                title='Visit York U Digital Media page'>
-                    <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>Digital Media Program</p>
-                    <p className='text-gray-700 mb-2'>York University, 2023-2024</p>
-                    <hr className='h-0.5'/>
-                    <ul className="list-disc ml-8 mt-4 space-y-2 text-gray-600">
-                        <li>UI / UX design principles & user-centered workflows</li>
-                        <li>Graphic design, branding, and visual systems</li>
-                        <li>Interactivity of computing and society</li>
-                        <li>Creative problem-solving & design iteration</li>
-                        <li>Collaboration on interdisciplinary creative projects</li>
-                    </ul>
-                </div></a>
-                <a href='https://lassonde.yorku.ca/academics/computer-science' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
-                title='Visit Lassonde Computer Science page'>
-                    <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>B.Sc. Specialized Honours Computer Science</p>
-                    <p className='text-gray-700 mb-2'>York University, Sept. 2023–Present</p>
-                    <hr className='h-0.5'/>
-                    <ul className="list-disc ml-8 mt-4 space-y-2 text-gray-600">
-                        <li>Programming fundamentals (Java, JavaScript, Python)</li>
-                        <li>Data structures, algorithms, and problem solving</li>
-                        <li>Object-oriented design & software architecture</li>
-                        <li>Web development with modern frameworks (React)</li>
-                        <li>Mathematical foundations for computing</li>
-                    </ul>
-                </div></a>
+            <div className='eduboxes'>
+                <div className='education-grid'>
+                    {educationCards.map((card) => (
+                        <EducationCard key={card.title} card={card} />
+                    ))}
                 </div>
             </div>
 
@@ -209,43 +237,81 @@ function AboutMe() {
     );
 }
 
+function EducationCard({ card }) {
+    const tilt = useTilt({ max: 8 });
+
+    return (
+        <a
+            className='education-card-link'
+            href={card.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={card.linkTitle}
+        >
+            <article
+                ref={tilt.ref}
+                className='education-card'
+                onMouseMove={tilt.onMouseMove}
+                onMouseLeave={tilt.onMouseLeave}
+            >
+                <div className='education-card-media'>
+                    <img
+                        src={card.image}
+                        alt={card.imageAlt}
+                        style={{ objectPosition: card.imagePosition }}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <span className='education-card-years'>{card.years}</span>
+                    {card.credit && (
+                        <span className='education-card-credit' title='Photo by Andrei Sedoff, CC BY 3.0 — https://creativecommons.org/licenses/by/3.0/'>
+                            {card.credit}
+                        </span>
+                    )}
+                </div>
+                <div className='education-card-body'>
+                    <h3 className='jetbrains-mono'>{card.title}</h3>
+                    <p className='education-card-school jetbrains-mono'>{card.school}</p>
+                    <ul className='education-card-points'>
+                        {card.points.map((point) => (
+                            <li key={point}>{point}</li>
+                        ))}
+                    </ul>
+                    <span className='education-card-cta jetbrains-mono'>
+                        View program <span aria-hidden='true'>↗</span>
+                    </span>
+                </div>
+                <span className='education-card-glare' aria-hidden='true' />
+            </article>
+        </a>
+    );
+}
+
 function IdCard() {
-
-    // The original implementation used framer-motion values + springs for
-    // this tilt. CSS custom properties + a CSS transition on the card give
-    // the same smoothed tilt while keeping mouse moves off React's render path.
-    const handleMouseMove = (event) => {
-        const card = event.currentTarget;
-        const rect = card.getBoundingClientRect();
-
-        const normalizedX = (event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-        const normalizedY = (event.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-
-        // framer's useTransform clamps its input range to [-0.5, 0.5],
-        // mapping to a maximum of +/-15deg.
-        const clampedX = Math.max(-0.5, Math.min(0.5, normalizedX));
-        const clampedY = Math.max(-0.5, Math.min(0.5, normalizedY));
-
-        card.style.setProperty('--card-rotate-x', `${clampedY * 30}deg`);
-        card.style.setProperty('--card-rotate-y', `${clampedX * -30}deg`);
-        card.style.setProperty('--card-glow-x', `${event.clientX - rect.left}px`);
-        card.style.setProperty('--card-glow-y', `${event.clientY - rect.top}px`);
-        card.style.setProperty('--card-glow-opacity', '1');
-    };
-
-    const handleMouseLeave = (event) => {
-        const card = event.currentTarget;
-        card.style.setProperty('--card-rotate-x', '0deg');
-        card.style.setProperty('--card-rotate-y', '0deg');
-        card.style.setProperty('--card-glow-opacity', '0');
-    };
+    // Pointer-driven tilt + parallax. All values are written as CSS
+    // custom properties, so mouse movement never re-renders React.
+    const tilt = useTilt({
+        max: 18,
+        clamp: 0.5,
+        onMove: ({ element, x, y }) => {
+            element.style.setProperty('--card-parallax-x', `${(-x * 18).toFixed(2)}px`);
+            element.style.setProperty('--card-parallax-y', `${(-y * 14).toFixed(2)}px`);
+            element.style.setProperty('--card-glow-opacity', '1');
+        },
+        onLeave: (element) => {
+            element.style.setProperty('--card-parallax-x', '0px');
+            element.style.setProperty('--card-parallax-y', '0px');
+            element.style.setProperty('--card-glow-opacity', '0');
+        },
+    });
 
     return (
         <a href='https://www.yorku.ca' target="_blank" rel="noopener noreferrer"><div
+            ref={tilt.ref}
             title="Visit York University"
             className='card shrink-0 mx-4 md:mx-15'
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
+            onMouseMove={tilt.onMouseMove}
+            onMouseLeave={tilt.onMouseLeave}
             style={{
                 transformStyle: 'preserve-3d',
                 perspective: '1000px'
@@ -253,14 +319,18 @@ function IdCard() {
         >
             {/* Card thickness/edge */}
             <div className='card-edge' />
-            <div className='card-glow' />
+            <div className='building-strip'>
+                <img className='building-bar' src={variHallCard} alt="Vari Hall on the York University campus" width={1400} height={573} loading="lazy" decoding="async" />
+            </div>
+            <div className='card-holo' aria-hidden='true' />
             <img className='york-logo' src={yorkLogo} alt="York University logo representing Lassonde School of Engineering" loading="lazy" decoding="async" />
-            <img className='building-bar' src={variHall} alt="York University Vari Hall building campus photo" width={300} height={174} loading="lazy" decoding="async" />
-            <div className='photo-mask'><img className='id-photo' src={idImage} alt="Luca Mazzotta University ID card photo" width={700} height={930} loading="lazy" decoding="async" style={{width: '100%', height: 'auto', maxWidth: '280px'}}/></div>
+            <div className='photo-mask'><img className='id-photo' src={idImage} alt="Luca Mazzotta University ID card photo" width={700} height={930} loading="lazy" decoding="async" /></div>
             <span>
                 <p className='font-extrabold'>Luca Mazzotta</p>
                 <p>B.Sc. Computer Science</p>
             </span>
+            <div className='card-glow' aria-hidden='true' />
+            <div className='card-sheen' aria-hidden='true' />
         </div></a>
     )
 }
