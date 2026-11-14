@@ -3,7 +3,7 @@ import './Landing.css'
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { RiLinkedinBoxLine } from "react-icons/ri";
 import { TbBrandGithub } from "react-icons/tb";
-import { motion } from 'motion/react'
+import Reveal from '../Reveal.jsx'
 
 function Landing() {
 
@@ -14,56 +14,45 @@ function Landing() {
                 <div className='title-container flex flex-col justify-center items-center'>
                     <h1>Luca Mazzotta</h1>
                     <h2 className='text-3xl flex flex-col justify-center text-center items-center'>Computer Science student at York University
-                        <motion.hr
-                            className='h-1'
-                            initial={{ width: 0 }}
-                            whileInView={{ width: "105%" }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            exit={{ width: 0 }}
-                            transition={{ duration: 0.4, ease: "easeInOut", delay: 0.5 }} />
+                        <Reveal
+                            as='hr'
+                            className='h-1 reveal-line'
+                            amount={0}
+                            delay={100} />
                     </h2>
 
                     <div className='divider h-14' />
 
-                    <motion.h2 className='text-2xl text-center'
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1 }}
-                    >Check out my personal portfolio with my projects, info, and more</motion.h2>
+                    <Reveal as='h2' className='text-2xl text-center pop-in' delay={200}>
+                        Check out my personal portfolio with my projects, info, and more
+                    </Reveal>
 
                     <div className='linkContainer flex flex-row mt-10'>
                         <a href="/Luca Mazzotta, Computer Science - Resume.pdf" download>
-                            <motion.h2
-                            initial={{ scale: 0 }}
-                            whileInView={{ scale: 1 }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.2 }}
-                            className='underline text-lg m-2.5 cursor-pointer link'>
+                            <Reveal
+                                as='h2'
+                                delay={320}
+                                className='underline text-lg m-2.5 cursor-pointer link pop-in'>
                                 <IoDocumentTextOutline className='icon'/> Resume.pdf
-                            </motion.h2>
+                            </Reveal>
                         </a>
                         <a href='https://www.linkedin.com/in/luca-j-mazzotta/' target="_blank" rel="noopener noreferrer">
-                            <motion.h2
-                                initial={{ scale: 0 }}
-                                whileInView={{ scale: 1 }}
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.3 }}
-                                className='underline text-lg m-2.5 cursor-pointer link'
+                            <Reveal
+                                as='h2'
+                                delay={380}
+                                className='underline text-lg m-2.5 cursor-pointer link pop-in'
                             >
                                 <RiLinkedinBoxLine /> LinkedIn
-                            </motion.h2>
+                            </Reveal>
                         </a>
                         <a href='https://github.com/LucaJMazz' target="_blank" rel="noopener noreferrer">
-                            <motion.h2
-                                initial={{ scale: 0 }}
-                                whileInView={{ scale: 1 }}
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.4 }}
-                                className='underline text-lg m-2.5 cursor-pointer link'
+                            <Reveal
+                                as='h2'
+                                delay={440}
+                                className='underline text-lg m-2.5 cursor-pointer link pop-in'
                             >
                                 <TbBrandGithub /> Github
-                            </motion.h2>
+                            </Reveal>
                         </a>
                     </div>
 

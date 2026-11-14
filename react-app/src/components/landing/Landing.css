@@ -41,6 +41,39 @@
     font-weight: 800;
 }
 
+/*
+ * Entrance animations. These replace framer-motion's whileInView
+ * animations and are driven entirely by CSS + an IntersectionObserver
+ * class toggle. Timings are intentionally snappier than the old
+ * spring/tween values.
+ */
+.landing-container .reveal-line {
+    width: 0;
+    transition: width 240ms ease-in-out var(--reveal-delay, 0ms);
+}
+
+.landing-container .reveal-line.in-view {
+    width: 105%;
+}
+
+.landing-container .pop-in {
+    transform: scale(0);
+}
+
+.landing-container .pop-in.in-view {
+    /* Back-out easing approximates the old spring overshoot. */
+    animation: landing-pop 300ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--reveal-delay, 0ms) both;
+}
+
+@keyframes landing-pop {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 .landing-container .side-pattern {
     position: relative;
     height: 100%;

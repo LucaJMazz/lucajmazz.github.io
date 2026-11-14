@@ -3,10 +3,10 @@ import yorkLogo from '../../assets/york-u-logo.webp';
 import variHall from '../../assets/vari-hall.webp';
 import idImage from '../../assets/id-image.webp';
 import suitImg from '../../assets/suit.webp'
-import { useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import LinePattern from '../patterns/LinePattern';
 import PatternDivider from '../dividers/PatternDivider'
+import Reveal from '../Reveal';
 import { LuAppWindow } from "react-icons/lu";
 import { HiPaintBrush } from "react-icons/hi2";
 import { FaLaptopCode, FaGraduationCap, FaUsers } from "react-icons/fa";
@@ -82,13 +82,7 @@ function AboutMe() {
                 <div className='text-box text-xl jetbrains-mono'>
                     <h2 className='text-3xl jetbrains-mono mb-3'> 
                         Education
-                        <motion.hr
-                            className='h-1'
-                            initial={{ width: 0 }}
-                            whileInView={{ width: "100%" }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            exit={{ width: 0 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }} />
+                        <Reveal as='hr' className='h-1 reveal-line' amount={0} />
                     </h2>
                     I'm a third-year Computer Science student at York University's Lassonde School of Engineering, pursuing a B.Sc., Specialized Honours in Computer Science (Sept. 2023 to present).
                     <br/><br/>
@@ -217,85 +211,49 @@ function AboutMe() {
 
 function IdCard() {
 
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    // The original implementation used framer-motion values + springs for
+    // this tilt. CSS custom properties + a CSS transition on the card give
+    // the same smoothed tilt while keeping mouse moves off React's render path.
+    const handleMouseMove = (event) => {
+        const card = event.currentTarget;
+        const rect = card.getBoundingClientRect();
 
-    const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [-15, 15]), {
-        stiffness: 300,
-        damping: 30
-    });
-    const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [15, -15]), {
-        stiffness: 300,
-        damping: 30
-    });
+        const normalizedX = (event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+        const normalizedY = (event.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
 
-    const handleMouseMove = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
+        // framer's useTransform clamps its input range to [-0.5, 0.5],
+        // mapping to a maximum of +/-15deg.
+        const clampedX = Math.max(-0.5, Math.min(0.5, normalizedX));
+        const clampedY = Math.max(-0.5, Math.min(0.5, normalizedY));
 
-        x.set((e.clientX - centerX) / (rect.width / 2));
-        y.set((e.clientY - centerY) / (rect.height / 2));
-
-        // Get mouse position relative to card
-        setMousePosition({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        });
+        card.style.setProperty('--card-rotate-x', `${clampedY * 30}deg`);
+        card.style.setProperty('--card-rotate-y', `${clampedX * -30}deg`);
+        card.style.setProperty('--card-glow-x', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--card-glow-y', `${event.clientY - rect.top}px`);
+        card.style.setProperty('--card-glow-opacity', '1');
     };
 
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-        setMousePosition({ x: 0, y: 0 });
+    const handleMouseLeave = (event) => {
+        const card = event.currentTarget;
+        card.style.setProperty('--card-rotate-x', '0deg');
+        card.style.setProperty('--card-rotate-y', '0deg');
+        card.style.setProperty('--card-glow-opacity', '0');
     };
 
     return (
-        <a href='https://www.yorku.ca' target="_blank" rel="noopener noreferrer"><motion.div 
+        <a href='https://www.yorku.ca' target="_blank" rel="noopener noreferrer"><div
             title="Visit York University"
             className='card shrink-0 mx-4 md:mx-15'
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
-                rotateX,
-                rotateY,
                 transformStyle: 'preserve-3d',
-                perspective: 1000,
-                position: 'relative'
+                perspective: '1000px'
             }}
         >
             {/* Card thickness/edge */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: '0px',
-                    left: '0px',
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '.7rem',
-                    background: 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)',
-                    transform: 'translateZ(-22px)',
-                    transformStyle: 'preserve-3d',
-                    pointerEvents: 'none',
-                    zIndex: -1
-                }}
-            />
-            {mousePosition.x !== 0 && (
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: '.5rem',
-                        background: `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.3), transparent)`,
-                        pointerEvents: 'none',
-                        zIndex: 10
-                    }}
-                />
-            )}
+            <div className='card-edge' />
+            <div className='card-glow' />
             <img className='york-logo' src={yorkLogo} alt="York University logo representing Lassonde School of Engineering" loading="lazy" decoding="async" />
             <img className='building-bar' src={variHall} alt="York University Vari Hall building campus photo" width={300} height={174} loading="lazy" decoding="async" />
             <div className='photo-mask'><img className='id-photo' src={idImage} alt="Luca Mazzotta University ID card photo" width={700} height={930} loading="lazy" decoding="async" style={{width: '100%', height: 'auto', maxWidth: '280px'}}/></div>
@@ -303,7 +261,7 @@ function IdCard() {
                 <p className='font-extrabold'>Luca Mazzotta</p>
                 <p>B.Sc. Computer Science</p>
             </span>
-        </motion.div></a>
+        </div></a>
     )
 }
 
