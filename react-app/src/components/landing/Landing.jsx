@@ -39,8 +39,8 @@ function Landing() {
                             whileInView={{ scale: 1 }}
                             viewport={{ once: true, amount: 0.5 }}
                             transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.2 }}
-                            className='underline text-lg m-2.5 cursor-pointer link'> 
-                                <IoDocumentTextOutline className='icon'/> Resume.pdf 
+                            className='underline text-lg m-2.5 cursor-pointer link'>
+                                <IoDocumentTextOutline className='icon'/> Resume.pdf
                             </motion.h2>
                         </a>
                         <a href='https://www.linkedin.com/in/luca-j-mazzotta/' target="_blank" rel="noopener noreferrer">
@@ -49,7 +49,7 @@ function Landing() {
                                 whileInView={{ scale: 1 }}
                                 viewport={{ once: true, amount: 0.5 }}
                                 transition={{ type: "spring", stiffness: 260, damping: 16, delay: 1.3 }}
-                                className='underline text-lg m-2.5 cursor-pointer link' 
+                                className='underline text-lg m-2.5 cursor-pointer link'
                             >
                                 <RiLinkedinBoxLine /> LinkedIn
                             </motion.h2>

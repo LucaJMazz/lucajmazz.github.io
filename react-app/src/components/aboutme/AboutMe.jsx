@@ -69,18 +69,12 @@ function AboutMe() {
                         I also work as a math tutor, which has taught me how to explain complex ideas clearly and debug problems step by step.
                         I'm looking for software development co-op and internship opportunities.
                 </span>
-                <motion.div 
-                initial={{ scale: 0.5 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                exit={{ scale: 0.5 }}
-                transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                className='portrait-before shrink-0  m-5'>
+                <div className='portrait-before shrink-0  m-5'>
                     <div className='portrait shrink-0 flex flex-col justify-center items-center'>
                         <img className='object-center object-cover' src={suitImg} alt="Professional headshot of Luca Mazzotta in a suit" width={560} height={560} loading="lazy" decoding="async" style={{width: '280px', height: 'auto'}}></img>
                         <p className='mt-4 jetbrains-mono text-xl text-black'> Luca Mazzotta</p>
                     </div>
-                </motion.div>
+                </div>
             </div>
 
             <LinePattern className={'pattern-bg'}>
@@ -105,12 +99,7 @@ function AboutMe() {
             </LinePattern>
 
             <div className='eduboxes flex flex-row justify-center align-middle'>
-                <motion.div className='flex flex-row justify-center align-middle'
-                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                >
+                <div className='flex flex-row justify-center align-middle'>
                 <a href='https://www.mayfieldarts.com/visualarts' target="_blank" rel="noopener noreferrer"><div className='info-card my-20 m-5 p-5' 
                 title='Visit Mayfield VA RAP page'>
                     <p className='jetbrains-mono font-extrabold mb-2 text-gray-900 text-2xl'>Visual Arts, Regional Arts Program</p>
@@ -150,7 +139,7 @@ function AboutMe() {
                         <li>Mathematical foundations for computing</li>
                     </ul>
                 </div></a>
-                </motion.div>
+                </div>
             </div>
 
             <PatternDivider />
@@ -162,12 +151,7 @@ function AboutMe() {
                 <p className="jetbrains-mono subtitle">Where I've worked and what I've done.</p>
                 <hr className="h-1 mb-5 mt-2 subtitle"/>
                 <div className='mt-8 grid grid-cols-2 gap-10'>
-                <motion.div className='skill-box'
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                >
+                <div className='skill-box'>
                     <div className='flex flex-row justify-start items-center m-0'>
                         <FaGraduationCap className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
                         <h3 className='jetbrains-mono text-2xl font-extrabold'>Advanced Math Tutor</h3>
@@ -181,13 +165,8 @@ function AboutMe() {
                             <li>Tracks progress and adjusts lessons based on results</li>
                             <li>Explains technical ideas in simple language to students and parents</li>
                     </ul>
-                </motion.div>
-                <motion.div className='skill-box'
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                >
+                </div>
+                <div className='skill-box'>
                     <div className='flex flex-row justify-start items-center m-0'>
                         <FaUsers className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
                         <h3 className='jetbrains-mono text-2xl font-extrabold'>Camp Counsellor</h3>
@@ -200,7 +179,7 @@ function AboutMe() {
                             <li>Coordinated with staff on materials and logistics for 5+ daily activities</li>
                             <li>Followed safety protocols during all activities</li>
                     </ul>
-                </motion.div>
+                </div>
                 </div>
             </div>
 
@@ -216,12 +195,7 @@ function AboutMe() {
                 {skillGroups.map((group) => {
                     const Icon = group.icon;
                     return (
-                    <motion.div key={group.title} className='skill-box'
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    >
+                    <div key={group.title} className='skill-box'>
                         <div className='flex flex-row justify-start items-center m-0'>
                             <Icon className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
                             <h3 className='jetbrains-mono text-2xl font-extrabold'>{group.title}</h3>
@@ -232,7 +206,7 @@ function AboutMe() {
                                     <li key={item} className='skill-chip jetbrains-mono'>{item}</li>
                                 ))}
                         </ul>
-                    </motion.div>
+                    </div>
                     );
                 })}
                 </div>

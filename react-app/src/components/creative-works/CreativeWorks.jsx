@@ -1,7 +1,6 @@
 import './CreativeWorks.css'
 import { useState } from 'react'
 import LinePattern from '../patterns/LinePattern'
-import { motion } from 'motion/react'
 import t1 from '../../assets/trip/t1.webp'
 import t2 from '../../assets/trip/t2.webp'
 import t3 from '../../assets/trip/t3.webp'
@@ -86,12 +85,7 @@ function Artwork({ name, desc, span, imgs}) {
 
     return (
         <>
-        <motion.div
-        initial={{ opacity: 0, y: 30, scale: 0.9 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ type: "spring", stiffness: 260, damping: 18 }}
-        className="artwork-pattern mb-10 rounded-xl overflow-hidden">
+        <div className="artwork-pattern mb-10 rounded-xl overflow-hidden">
             <div className='artwork relative'>
                 <div className='art-overlay' />
                 <div className='art-accent' />
@@ -138,7 +132,7 @@ function Artwork({ name, desc, span, imgs}) {
                     </span>
                 </div>
             </div>
-        </motion.div>
+        </div>
         {zoomed && <div 
         className='blur-bg'
         onClick={() => setZoomed(false)}
