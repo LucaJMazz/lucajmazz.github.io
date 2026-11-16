@@ -128,8 +128,8 @@ function AboutMe() {
                 <p onClick={() => {scrollTo(skillsRef)}} className='mx-2 jetbrains-mono underline cursor-pointer'>Skills</p>
             </div>
 
-            <div ref={summaryRef} className='flex flex-row justify-center items-center mb-5 mx-50'>
-                <span className='p-10 jetbrains-mono text-xl'>Hi, I'm Luca.
+            <div ref={summaryRef} className='summary-section'>
+                <span className='summary-copy jetbrains-mono text-xl'>Hi, I'm Luca.
                         I'm a third-year Computer Science student at York University's Lassonde School of Engineering.
                         I build full-stack web apps and games using React, Java, and Spring Boot.
                         I also work as a math tutor, which has taught me how to explain complex ideas clearly and debug problems step by step.
@@ -149,8 +149,8 @@ function AboutMe() {
             </div>
 
             <LinePattern className={'pattern-bg'}>
-            <div ref={educationRef} className='px-60 py-20 flex flex-row justify-center items-center'>
-                <div className='text-box text-xl jetbrains-mono'>
+            <div ref={educationRef} className='education-intro'>
+                <div className='education-copy text-box text-xl jetbrains-mono'>
                     <h2 className='text-3xl jetbrains-mono mb-3'> 
                         Education
                         <Reveal as='hr' className='h-1 reveal-line' amount={0} />
@@ -159,7 +159,7 @@ function AboutMe() {
                     <br/><br/>
                     <b>Relevant coursework:</b> Theory of Computation, Computer Organization, Advanced Object-Oriented Programming, Discrete Math, Applied Linear Algebra, Fundamentals of Data Structures, Introduction to AI and Logic Programming, Operating System Fundamentals.
                 </div>
-            <div className='scale-130'><IdCard /></div>
+            <div className='id-card-slot'><IdCard /></div>
             </div>
             </LinePattern>
 
@@ -181,7 +181,7 @@ function AboutMe() {
                     <p className="jetbrains-mono subtitle">Where I've worked and what I've done.</p>
                     <Reveal as='hr' className='h-1 mt-2 mb-5 subtitle reveal-line' amount={0} delay={100} />
                 </div>
-                <div className='mt-8 grid grid-cols-2 gap-10'>
+                <div className='experience-grid'>
                 <div className='skill-box'>
                     <div className='flex flex-row justify-start items-center m-0'>
                         <FaGraduationCap className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
@@ -224,22 +224,32 @@ function AboutMe() {
                     <p className="jetbrains-mono subtitle">Languages, frameworks, libraries, and developer tools I use.</p>
                     <Reveal as='hr' className='h-1 mt-2 mb-5 subtitle reveal-line' amount={0} delay={100} />
                 </div>
-                <div className='mt-8 grid grid-cols-2 gap-10'>
-                {skillGroups.map((group) => {
+                <div className='skills-grid'>
+                {skillGroups.map((group, index) => {
                     const Icon = group.icon;
                     return (
-                    <div key={group.title} className='skill-box'>
-                        <div className='flex flex-row justify-start items-center m-0'>
-                            <Icon className='skill-box-icon mx-5 text-3xl' aria-hidden='true'/>
-                            <h3 className='jetbrains-mono text-2xl font-extrabold'>{group.title}</h3>
+                    <section key={group.title} className='skill-box skill-category-card'>
+                        <div className='skill-card-heading'>
+                            <div className='skill-card-heading-main'>
+                                <span className='skill-icon-frame'>
+                                    <Icon className='skill-box-icon' aria-hidden='true'/>
+                                </span>
+                                <div className='skill-card-title-wrap'>
+                                    <span className='skill-card-kicker jetbrains-mono'>CATEGORY {String(index + 1).padStart(2, '0')}</span>
+                                    <h3 className='jetbrains-mono'>{group.title}</h3>
+                                </div>
+                            </div>
+                            <span className='skill-count jetbrains-mono'>
+                                {String(group.items.length).padStart(2, '0')} <span>skills</span>
+                            </span>
                         </div>
-                        <hr className='h-0.5 mt-2'/>
+                        <div className='skill-card-rule' aria-hidden='true'><span /></div>
                         <ul role='list' className='skill-chips'>
                                 {group.items.map((item) => (
                                     <li key={item} className='skill-chip jetbrains-mono'>{item}</li>
                                 ))}
                         </ul>
-                    </div>
+                    </section>
                     );
                 })}
                 </div>
@@ -320,7 +330,7 @@ function IdCard() {
         <a href='https://www.yorku.ca' target="_blank" rel="noopener noreferrer"><div
             ref={tilt.ref}
             title="Visit York University"
-            className='card shrink-0 mx-4 md:mx-15'
+            className='card shrink-0'
             onMouseMove={tilt.onMouseMove}
             onMouseLeave={tilt.onMouseLeave}
             style={{
