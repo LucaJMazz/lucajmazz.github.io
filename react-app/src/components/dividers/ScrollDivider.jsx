@@ -8,14 +8,14 @@ function ScrollDivider() {
     const items = [
         'Java',
         'JavaScript',
-        'TypeScript',
+        'Claude Code',
         'Python',
+        'AI Tools',
         'React',
         'Spring Boot',
         'Node.js',
-        'Firebase',
         'Git',
-        'Docker'
+        'Docker',
     ];
 
     useEffect(() => {

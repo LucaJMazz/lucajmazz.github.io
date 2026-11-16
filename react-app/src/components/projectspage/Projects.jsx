@@ -31,7 +31,7 @@ const projects = [
     {
         name: 'Portfolio Site',
         desc: 'Personal portfolio site built with React and Vite',
-        tools: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Figma'],
+        tools: ['React', 'Vite', 'Tailwind CSS', 'SEO', 'Figma'],
         imgSrc: portfolioImg,
         imgAlt: 'Screenshot of Luca Mazzotta portfolio site showing projects and about me sections',
         link: '/',

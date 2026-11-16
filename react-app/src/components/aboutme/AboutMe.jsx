@@ -14,6 +14,7 @@ import { LuAppWindow } from "react-icons/lu";
 import { HiPaintBrush } from "react-icons/hi2";
 import { FaLaptopCode, FaGraduationCap, FaUsers } from "react-icons/fa";
 import { IoIosGitBranch } from "react-icons/io";
+import { VscSparkleFilled } from "react-icons/vsc";
 
 const skillGroups = [
     {
@@ -34,7 +35,13 @@ const skillGroups = [
     {
         title: 'Developer Tools',
         icon: HiPaintBrush,
-        items: ['Git', 'GitHub', 'Docker', 'VS Code', 'IntelliJ IDEA', 'Eclipse', 'Visual Studio', 'Postman', 'Figma', 'Microsoft Azure', 'Netlify', 'Render', 'Cloudflare'],
+        items: ['Git', 'GitHub', 'Docker', 'VS Code', 'IntelliJ IDE', 'Eclipse', 'Visual Studio', 'Postman', 'Figma', 'Microsoft Azure', 'Netlify', 'Render', 'Cloudflare', 'Oracle Cloud Infrastructure'],
+    },
+    {
+        title: 'AI Tools',
+        icon: VscSparkleFilled,
+        items: [ 'Claude Code', 'Opencode', 'Ollama', 'Local LLMs (Hermes agent)', 'Claude API', 'Apple Foundation Models', 'MCP',
+'Github copilot', 'agentic workflows', 'AI endpoints in projects'],
     },
 ];
 
@@ -184,10 +191,10 @@ function AboutMe() {
                     <p className='jetbrains-mono text-sm text-gray-300 mt-4 mb-3'>Scholars Education, Bolton, ON</p>
                     <span className='skill-chip jetbrains-mono'>Nov. 2024 – Present</span>
                     <ul className="jetbrains-mono list-disc ml-8 mt-4 space-y-2 text-gray-300">
-                            <li>One-on-one and small-group math and problem-solving instruction for 30+ students in Grades 1-12</li>
-                            <li>Finds each student's knowledge gaps and fixes them with a step-by-step, debugging-style approach</li>
-                            <li>Tracks progress and adjusts lessons based on results</li>
-                            <li>Explains technical ideas in simple language to students and parents</li>
+                            <li>Tutored 40+ students in Grades 1–12 in one-on-one and small-group sessions, breaking down complex concepts into clear, step-by-step explanations</li>
+                            <li>Diagnosed gaps in understanding and adjusted lesson plans on the spot, helping my students raise their math grades by an average of 15%</li>
+                            <li>Tracked progress across sessions and changed teaching methods based on results, improving quiz/test scores by 10% on average</li>
+                            <li>Communicated technical and abstract material to non-technical audiences (students and parents), translating complex ideas into accessible language</li>
                     </ul>
                 </div>
                 <div className='skill-box'>
@@ -199,9 +206,9 @@ function AboutMe() {
                     <p className='jetbrains-mono text-sm text-gray-300 mt-4 mb-3'>Town of Caledon, Bolton, ON</p>
                     <span className='skill-chip jetbrains-mono'>June 2025 – Aug. 2025</span>
                     <ul className="jetbrains-mono list-disc ml-8 mt-4 space-y-2 text-gray-300">
-                            <li>Led daily programming for 20+ campers</li>
-                            <li>Coordinated with staff on materials and logistics for 5+ daily activities</li>
-                            <li>Followed safety protocols during all activities</li>
+                            <li>Supervised and led daily programming for 20+ campers, planning and facilitating hands-on activities while adapting quickly to the needs of a diverse group</li>
+                            <li>Coordinated with staff and supervisors to organize materials and logistics for 5+ daily activities, maintaining safety protocols and smooth operations</li>
+                            <li>Adhered to all safety protocols during daily activities and camper situtations</li>
                     </ul>
                 </div>
                 </div>
